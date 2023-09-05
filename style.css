@@ -166,10 +166,10 @@ section .title::after{
 /* home section styling */
 .home{
     display: flex;
-    background: url("banner.jpg") no-repeat center;
+    background: url("images/banner.png") no-repeat center;
     height: 100vh;
     color: #fff;
-    min-height: 500px;
+    min-height: 600px;
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Ubuntu', sans-serif;
@@ -536,7 +536,7 @@ section .title::after{
 }
 
 /* footer section styling */
-footer{
+/* footer{
     background: #111;
     padding: 15px 23px;
     color: #fff;
@@ -552,6 +552,208 @@ footer span a{
 footer span a:hover{
     text-decoration: underline;
 }
+footer::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    /* background: #AFAFB6; */
+  /* }
+  footer .content{
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+  }
+  footer .content .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  .content .top .logo-details{
+    color: #fff;
+    font-size: 30px;
+  }
+  .content .top .media-icons{
+    display: flex;
+  }
+  .content .top .media-icons a{
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+  .top .media-icons a:nth-child(1){
+    background: #4267B2;
+  }
+  .top .media-icons a:nth-child(1):hover{
+    color: #4267B2;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(2){
+    background: #1DA1F2;
+  }
+  .top .media-icons a:nth-child(2):hover{
+    color: #1DA1F2;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(3){
+    background: #E1306C;
+  }
+  .top .media-icons a:nth-child(3):hover{
+    color: #E1306C;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(4){
+    background: #0077B5;
+  }
+  .top .media-icons a:nth-child(4):hover{
+    color: #0077B5;
+    background: #fff;
+  }
+  .top .media-icons a:nth-child(5){
+    background: #FF0000;
+  }
+  .top .media-icons a:nth-child(5):hover{
+    color: #FF0000;
+    background: #fff;
+  }
+  
+   */ 
+   /* Mobile Styles */
+footer {
+    background: #111;
+    padding: 15px 10px; /* Adjust padding for smaller screens */
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  
+  footer span a {
+    color: crimson;
+    text-decoration: none;
+  }
+  
+  footer span a:hover {
+    text-decoration: underline;
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    /* background: #AFAFB6; */
+  }
+  
+  footer .content {
+    max-width: 1250px;
+    margin: auto;
+    padding: 30px 10px 40px 10px; /* Adjust padding for smaller screens */
+  }
+  
+  .content .top .logo-details {
+    color: #fff;
+    font-size: 24px; /* Reduce font size for smaller screens */
+  }
+  
+  .content .top .media-icons {
+    display: flex;
+  }
+  
+  .content .top .media-icons a {
+    height: 40px;
+    width: 40px;
+    margin: 0 8px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+  
+  /* Tablet Styles (example breakpoint at 768px) */
+  @media (min-width: 768px) {
+    footer {
+      padding: 15px 20px; /* Increase padding for tablets */
+    }
+  
+    .content .top .logo-details {
+      font-size: 30px; /* Restore font size for tablets */
+    }
+  }
+  
+  /* Desktop Styles (example breakpoint at 1024px) */
+  @media (min-width: 1024px) {
+    footer {
+      padding: 15px 40px; /* Further increase padding for desktop */
+    }
+  
+    .content .top .logo-details {
+      font-size: 36px; /* Increase font size for desktop */
+    }
+  }
+  
+  /* Additional CSS for media icons hover colors */
+  .top .media-icons a:nth-child(1) {
+    background: #4267B2;
+  }
+  
+  .top .media-icons a:nth-child(1):hover {
+    color: #4267B2;
+    background: #fff;
+  }
+  
+  .top .media-icons a:nth-child(2) {
+    background: #1DA1F2;
+  }
+  
+  .top .media-icons a:nth-child(2):hover {
+    color: #1DA1F2;
+    background: #fff;
+  }
+  
+  .top .media-icons a:nth-child(3) {
+    background: #E1306C;
+  }
+  
+  .top .media-icons a:nth-child(3):hover {
+    color: #E1306C;
+    background: #fff;
+  }
+  
+  .top .media-icons a:nth-child(4) {
+    background: #0077B5;
+  }
+  
+  .top .media-icons a:nth-child(4):hover {
+    color: #0077B5;
+    background: #fff;
+  }
+  
+  .top .media-icons a:nth-child(5) {
+    background: #FF0000;
+  }
+  
+  .top .media-icons a:nth-child(5):hover {
+    color: #FF0000;
+    background: #fff;
+  }
+  
 
 
 /* responsive media query start */
@@ -685,79 +887,4 @@ footer span a:hover{
 }
  /* footer begins */
 
-
-footer::before{
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 100px;
-  height: 1px;
-  width: 100%;
-  /* background: #AFAFB6; */
-}
-footer .content{
-  max-width: 1250px;
-  margin: auto;
-  padding: 30px 40px 40px 40px;
-}
-footer .content .top{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 50px;
-}
-.content .top .logo-details{
-  color: #fff;
-  font-size: 30px;
-}
-.content .top .media-icons{
-  display: flex;
-}
-.content .top .media-icons a{
-  height: 40px;
-  width: 40px;
-  margin: 0 8px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  color: #fff;
-  font-size: 17px;
-  text-decoration: none;
-  transition: all 0.4s ease;
-}
-.top .media-icons a:nth-child(1){
-  background: #4267B2;
-}
-.top .media-icons a:nth-child(1):hover{
-  color: #4267B2;
-  background: #fff;
-}
-.top .media-icons a:nth-child(2){
-  background: #1DA1F2;
-}
-.top .media-icons a:nth-child(2):hover{
-  color: #1DA1F2;
-  background: #fff;
-}
-.top .media-icons a:nth-child(3){
-  background: #E1306C;
-}
-.top .media-icons a:nth-child(3):hover{
-  color: #E1306C;
-  background: #fff;
-}
-.top .media-icons a:nth-child(4){
-  background: #0077B5;
-}
-.top .media-icons a:nth-child(4):hover{
-  color: #0077B5;
-  background: #fff;
-}
-.top .media-icons a:nth-child(5){
-  background: #FF0000;
-}
-.top .media-icons a:nth-child(5):hover{
-  color: #FF0000;
-  background: #fff;
-}
 
