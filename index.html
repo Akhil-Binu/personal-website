@@ -136,14 +136,21 @@
     <!-- Navigation Bar -->
     <nav class="bg-black bg-opacity-80 backdrop-blur-md shadow-lg py-4 sticky top-0 z-50 rounded-b-lg border-b border-lime-700">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <!-- Brand name with hacker-style font -->
-            <a href="#home" class="text-3xl font-bold text-lime-400 font-mono-hacker tracking-wide">AKHIL BINU</a>
+            <!-- Brand name with hacker-style font and shield logo -->
+            <a href="#home" class="text-3xl font-bold text-lime-400 font-mono-hacker tracking-wide flex items-center">
+                <!-- Shield SVG Icon -->
+                <svg class="w-8 h-8 mr-2 text-lime-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.22l5.77 2.56-5.77 2.56-5.77-2.56L12 3.22zm0 17.5c-3.41-1.46-6-5.26-6-9.72V6.65l6-2.67 6 2.67v4.35c0 4.46-2.59 8.26-6 9.72z"/>
+                </svg>
+                AKHIL BINU
+            </a>
             <!-- Desktop navigation links -->
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Home</a>
                 <a href="#about" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">About</a>
                 <a href="#portfolio" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Portfolio</a>
                 <a href="#services" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Services</a>
+                <a href="#blog" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Blog</a> <!-- New Blog Link -->
                 <a href="#contact" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Contact</a>
             </div>
             <!-- Mobile menu button (hamburger icon) -->
@@ -159,6 +166,7 @@
             <a href="#about" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">About</a>
             <a href="#portfolio" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Portfolio</a>
             <a href="#services" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Services</a>
+            <a href="#blog" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Blog</a> <!-- New Blog Link -->
             <a href="#contact" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Contact</a>
         </div>
     </nav>
@@ -256,7 +264,7 @@
                     <ul class="list-disc list-inside mt-2 text-sm leading-relaxed">
                         <li>Led <span class="text-lime-300">vulnerability assessments</span> and <span class="text-lime-300">ethical hacking operations</span>, uncovering and addressing critical security flaws.</li>
                         <li>Provided specialized <span class="text-lime-300">1:1 cybersecurity tutoring</span>, helping students master complex security concepts.</li>
-                        <li>Implemented robust <span class="text-lime-300">security risk mitigation strategies</span> utilizing tools such as <span class="font-mono-hacker">Nmap</span>, <span class="font-mono-hacker">Wireshark</span>, <span class="font-mono-hacker">Burp Suite</span>, and <span class="font-mono-hacker">Metasploit</span>.</li>
+                        <li>Implemented robust <span class="text-lime-300">security risk mitigation strategies</span> utilizing tools such as <span class="font-mono-hacker">Nmap</span>, <span class="font-mono-hacker">Burp Suite</span>, <span class="font-mono-hacker">Wireshark</span>, <span class="font-mono-hacker">Metasploit</span>, and <span class="font-mono-hacker">Metasploit</span>.</li>
                     </ul>
                 </div>
             </div>
@@ -375,6 +383,51 @@
                         Personalized (1:1 and group) cybersecurity training, empowering individuals and teams with essential security knowledge and best practices.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 md:py-24 border-b border-lime-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 section-heading">My Blog</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post Card 1: The $10.5 Trillion Threat -->
+                <div class="card p-6 rounded-lg text-gray-200 text-left">
+                    <img src="https://i.postimg.cc/fyrnT42P/download.jpg" alt="Blog Post Image: The $10.5 Trillion Threat" class="rounded-md mb-4 w-full h-auto object-cover border border-lime-700">
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">The $10.5 Trillion Threat: Navigating the 5 Shifts of the 2025 Cybersecurity Paradigm</h3>
+                    <p class="text-sm text-gray-400 mb-3">Published: July 20, 2025</p>
+                    <p class="text-base leading-relaxed mb-4">
+                        An in-depth look at the monumental cybersecurity challenges predicted for 2025 and the critical shifts needed to navigate them.
+                    </p>
+                    <a href="https://medium.com/@akhilbinu/the-10-5-trillion-threat-navigating-the-5-shifts-of-the-2025-cybersecurity-paradigm-2bf13ce01909" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary px-4 py-2 rounded-full text-sm font-semibold">Read More</a>
+                </div>
+
+                <!-- Blog Post Card 2: Weekly Cyber Threat Brief -->
+                <div class="card p-6 rounded-lg text-gray-200 text-left">
+                    <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*6I0dOVdNieRlA778iQd-5w.jpeg" alt="Blog Post Image: Weekly Cyber Threat Brief" class="rounded-md mb-4 w-full h-auto object-cover border border-lime-700">
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">Weekly Cyber Threat Brief: Staying Ahead in a Dynamic Landscape (July 21–27, 2025)</h3>
+                    <p class="text-sm text-gray-400 mb-3">Published: July 27, 2025</p>
+                    <p class="text-base leading-relaxed mb-4">
+                        Your essential weekly roundup of emerging cyber threats, critical vulnerabilities, and actionable intelligence to keep you informed.
+                    </p>
+                    <a href="https://medium.com/meetcyber/weekly-cyber-threat-brief-staying-ahead-in-a-dynamic-landscape-july-21-27-2025-6f0717d9041f" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary px-4 py-2 rounded-full text-sm font-semibold">Read More</a>
+                </div>
+
+                <!-- Blog Post Card 3: Mastering Nmap -->
+                <div class="card p-6 rounded-lg text-gray-200 text-left">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQErTrFNspjjTA/article-cover_image-shrink_720_1280/B4EZhFdWmuGoAM-/0/1753511998714?e=1759363200&v=beta&t=cfkNYVcJFKN5TcwX_hnOBUkabNVaqcmW6V7BqVd--vk" alt="Blog Post Image: Mastering Nmap" class="rounded-md mb-4 w-full h-auto object-cover border border-lime-700">
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">Mastering Nmap: A Beginner’s Guide and Enterprise Use Cases</h3>
+                    <p class="text-sm text-gray-400 mb-3">Published: July 15, 2025</p>
+                    <p class="text-base leading-relaxed mb-4">
+                        A comprehensive guide to Nmap, covering its essential commands, practical applications, and advanced enterprise use cases.
+                    </p>
+                    <a href="https://medium.com/meetcyber/mastering-nmap-a-beginners-guide-and-enterprise-use-cases-ae6d6072b0e1" target="_blank" rel="noopener noreferrer" class="inline-block btn-primary px-4 py-2 rounded-full text-sm font-semibold">Read More</a>
+                </div>
+            </div>
+            <div class="mt-12">
+                <!-- "View All Blogs" button now simply scrolls to the #blog section -->
+                <a href="#blog" class="btn-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg">View All Blogs</a>
             </div>
         </div>
     </section>
