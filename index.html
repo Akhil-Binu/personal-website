@@ -1,105 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhil Binu - Cybersecurity Specialist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for general text, and Share Tech Mono for code-like sections -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Share_Tech_Mono&display=swap" rel="stylesheet">
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS with your Public Key
+        (function() {
+            emailjs.init("yvpBBeVvA7lUbdSch"); // Your EmailJS Public Key
+        })();
+    </script>
+    <style>
+        /* Define custom CSS variables for neon green shades */
+        :root {
+            --neon-green-light: #39FF14; /* Brighter neon green for highlights */
+            --neon-green-dark: #00FF00;  /* Standard neon green for main text */
+        }
 
-  <title>Akhil Binu</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+        /* Set default font and background/text colors for the entire body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Solid black background */
+            color: var(--neon-green-light); /* Default text color, subtle light green */
+        }
 
-  <!-- Favicons -->
-  <link href="assets/img/Akhil.jpg" rel="icon">
-  <link href="assets/img/Akhil.jpg" rel="apple-touch-icon">
+        /* Apply the monospace font to specific elements for a hacker/terminal feel */
+        .font-mono-hacker {
+            font-family: 'Share Tech Mono', monospace;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        /* Enable smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        /* Navigation link styles and hover effects */
+        .nav-link {
+            transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for color and shadow */
+        }
+        .nav-link:hover {
+            color: var(--neon-green-dark); /* Darker neon green on hover */
+            text-shadow: 0 0 8px var(--neon-green-dark); /* Subtle glow effect on hover */
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        /* Primary button styles and hover effects */
+        .btn-primary {
+            background-color: var(--neon-green-light); /* Bright neon green background */
+            color: #000000; /* Black text for contrast */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
+        }
+        .btn-primary:hover {
+            background-color: var(--neon-green-dark); /* Darker neon green on hover */
+            box-shadow: 0 0 15px var(--neon-green-dark); /* More pronounced glow */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+        
+        /* Styles for main section headings to give them a glowing look */
+        .section-heading {
+            color: var(--neon-green-dark); /* Standard neon green */
+            text-shadow: 0 0 10px var(--neon-green-dark); /* Prominent text shadow/glow */
+        }
 
+        /* Card styles for sections like Features, About, Projects, Services */
+        .card {
+            background-color: rgba(15, 23, 42, 0.7); /* Slightly transparent dark slate for depth */
+            border: 1px solid rgba(57, 255, 20, 0.3); /* Subtle green border */
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.2); /* Soft green glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth hover transitions */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5); /* Stronger glow */
+            border-color: var(--neon-green-dark); /* More vibrant border */
+        }
 
+        /* Styles for input fields in the contact form */
+        .contact-form-input {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black input background */
+            border: 1px solid rgba(57, 255, 20, 0.4); /* Subtle green border */
+            color: var(--neon-green-light); /* Neon green text color inside input */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus transitions */
+        }
+        .contact-form-input:focus {
+            border-color: var(--neon-green-dark); /* Vibrant green border on focus */
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5); /* Glow on focus */
+        }
+
+        /* Keyframe animations for hero section elements */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply animations with a default pause to control start with JS */
+        .animate-fade-in-down {
+            animation: fadeInDown 1s ease-out forwards paused;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards paused;
+        }
+
+        /* Subtle background pattern for the hero section, resembling circuit lines */
+        .cyber-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230a0a0a' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 20v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 14v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0 20v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 0v-4H4v4H0v2h4v4h2v-4h4v-2H6zM26 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 40v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM36 40v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
 </head>
+<body class="bg-black text-lime-400">
 
-<body>
+    <!-- Navigation Bar -->
+    <nav class="bg-black bg-opacity-80 backdrop-blur-md shadow-lg py-4 sticky top-0 z-50 rounded-b-lg border-b border-lime-700">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Brand name with hacker-style font -->
+            <a href="#home" class="text-3xl font-bold text-lime-400 font-mono-hacker tracking-wide">AKHIL BINU</a>
+            <!-- Desktop navigation links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Home</a>
+                <a href="#about" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">About</a>
+                <a href="#portfolio" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Portfolio</a>
+                <a href="#services" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Services</a>
+                <a href="#contact" class="nav-link text-lime-400 hover:text-lime-200 font-semibold text-lg">Contact</a>
+            </div>
+            <!-- Mobile menu button (hamburger icon) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500">
+                <svg class="w-8 h-8 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90 mt-2 py-2 rounded-lg shadow-lg mx-4 border border-lime-700">
+            <a href="#home" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Home</a>
+            <a href="#about" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">About</a>
+            <a href="#portfolio" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Portfolio</a>
+            <a href="#services" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Services</a>
+            <a href="#contact" class="block px-4 py-3 text-lime-400 hover:bg-lime-900 hover:text-lime-100 font-semibold rounded-md">Contact</a>
+        </div>
+    </nav>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Hero Section -->
+    <section id="home" class="relative py-20 md:py-32 flex items-center justify-center min-h-screen border-b border-lime-700 overflow-hidden">
+        <!-- Subtle cyber background pattern -->
+        <div class="absolute inset-0 cyber-bg opacity-10"></div>
+        <div class="relative container mx-auto px-4 text-center z-10">
+            <!-- Profile Picture -->
+            <div class="mb-8 animate-fade-in-down" style="animation-delay: 0.2s;">
+                <img src="https://i.postimg.cc/wyvS9FYL/Akhil-Binu-profile.png" alt="Akhil Binu Profile Picture" class="rounded-full mx-auto border-4 border-lime-400 shadow-xl" style="box-shadow: 0 0 25px var(--neon-green-light);">
+            </div>
+            <!-- Name and Tagline -->
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-lime-300 section-heading animate-fade-in-down" style="animation-delay: 0.4s;">
+                Akhil Binu
+            </h1>
+            <p class="text-2xl md:text-3xl font-medium mb-8 text-lime-400 font-mono-hacker animate-fade-in-up" style="animation-delay: 0.6s;">
+                Cybersecurity Analyst | Penetration Testing & 24×7 Monitoring Specialist
+            </p>
+            <!-- Brief Introduction -->
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-gray-300 animate-fade-in-up" style="animation-delay: 0.8s;">
+                Empowering businesses and individuals with robust cybersecurity solutions, from proactive threat detection to comprehensive risk remediation.
+            </p>
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up" style="animation-delay: 1s;">
+                <a href="#services" class="btn-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+                    View Services
+                </a>
+                <a href="#portfolio" class="btn-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+                    Explore Projects
+                </a>
+            </div>
+        </div>
+    </section>
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Akhil Binu</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 border-b border-lime-700">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 section-heading">About Me</h2>
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <!-- <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li> -->
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+            <!-- Personal Bio Card -->
+            <div class="card p-8 rounded-lg mb-12 max-w-4xl mx-auto text-gray-200">
+                <h3 class="text-2xl font-semibold text-lime-400 mb-4 font-mono-hacker">Profile Overview</h3>
+                <p class="leading-relaxed mb-4">
+                    With <span class="text-lime-300 font-semibold">2 years of dedicated experience</span> in cybersecurity, I, Akhil Binu, specialize in safeguarding digital assets through advanced <span class="text-lime-300 font-semibold">penetration testing</span>, <span class="text-lime-300 font-semibold">vulnerability assessment</span>, and continuous <span class="text-lime-300 font-semibold">24×7 security monitoring</span>. My mission is to empower businesses and individuals to identify and remediate cybersecurity risks effectively, building resilient systems that stand strong against evolving threats.
+                </p>
+                <p class="leading-relaxed">
+                    I am passionate about not just identifying weaknesses but also about knowledge sharing. I offer <span class="text-lime-300 font-semibold">1:1 and group tutoring</span> to foster the next generation of cybersecurity talent. I'm adept at leveraging industry-leading tools like Nmap, Wireshark, Burp Suite, and Metasploit to conduct in-depth security analyses and deliver actionable remediation reports. I'm open to <span class="text-lime-300 font-semibold">global collaborations and remote opportunities</span>.
+                </p>
+            </div>
 
-      <div class="header-social-links">
-        <a href="https://github.com/akhil-binu" class="github"><i class="bi bi-github"></i></a>
-        <a href="https://www.facebook.com/akhilbinuak" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/akhilbinuak/" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/akhilbinu/" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
+            <!-- Education Card -->
+            <div class="card p-8 rounded-lg mb-12 max-w-4xl mx-auto text-gray-200">
+                <h3 class="text-2xl font-semibold text-lime-400 mb-4 font-mono-hacker">Education</h3>
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-lime-300">Bachelor of Technology - BTech, Computer Science Engineering</h4>
+                    <p class="text-gray-400">College Of Engineering Kallooppara - India | Jul 2019 - Jul 2023</p>
+                    <ul class="list-disc list-inside mt-2 text-sm leading-relaxed">
+                        <li>Mastered core Computer Science concepts including Data Structures, Algorithms, Operating Systems, and Networking.</li>
+                        <li>Developed real-world projects in Artificial Intelligence, Web Development, and Cybersecurity, honing practical problem-solving expertise.</li>
+                        <li>Actively participated in <span class="text-lime-300">IEEE</span>, <span class="text-lime-300">IEDC</span> (Innovation and Entrepreneurship Development Centre), and <span class="text-lime-300">NSS</span> (National Service Scheme), fostering technical and leadership skills.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-lime-300">Secondary Education, Computer Science</h4>
+                    <p class="text-gray-400">St. Thomas Higher Secondary School | Jun 2017 - May 2019</p>
+                </div>
+            </div>
 
-    </div>
+            <!-- Work Experience Card -->
+            <div class="card p-8 rounded-lg mb-12 max-w-4xl mx-auto text-gray-200">
+                <h3 class="text-2xl font-semibold text-lime-400 mb-4 font-mono-hacker">Work Experience</h3>
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-lime-300">Security Researcher & Tutor</h4>
+                    <p class="text-gray-400">Upwork · Freelance | Jan 2025 – Present</p>
+                    <ul class="list-disc list-inside mt-2 text-sm leading-relaxed">
+                        <li>Conducting in-depth security testing for diverse clients, identifying critical vulnerabilities across various systems.</li>
+                        <li>Providing comprehensive <span class="text-lime-300">1:1 and group tutoring</span> on cybersecurity concepts and practical skills.</li>
+                        <li>Delivering detailed, actionable remediation reports to clients, ensuring effective risk mitigation.</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-lime-300">Digital Forensics Intern</h4>
+                    <p class="text-gray-400">Cyber Secured India · Internship | Apr 2025 – Jun 2025</p>
+                    <ul class="list-disc list-inside mt-2 text-sm leading-relaxed">
+                        <li>Gained hands-on experience in <span class="text-lime-300">network and Android penetration testing</span>, applying real-world techniques to identify system weaknesses.</li>
+                        <li>Explored various <span class="text-lime-300">privilege escalation techniques</span> and performed <span class="text-lime-300">cloud security simulations</span> to understand complex attack vectors.</li>
+                        <li>Developed practical skills in <span class="text-lime-300">digital forensics</span>, including data recovery and evidence analysis.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-lime-300">Founder & Chief Technology Officer</h4>
+                    <p class="text-gray-400">Brotechy · Full-time | Jan 2022 – Feb 2025</p>
+                    <ul class="list-disc list-inside mt-2 text-sm leading-relaxed">
+                        <li>Led <span class="text-lime-300">vulnerability assessments</span> and <span class="text-lime-300">ethical hacking operations</span>, uncovering and addressing critical security flaws.</li>
+                        <li>Provided specialized <span class="text-lime-300">1:1 cybersecurity tutoring</span>, helping students master complex security concepts.</li>
+                        <li>Implemented robust <span class="text-lime-300">security risk mitigation strategies</span> utilizing tools such as <span class="font-mono-hacker">Nmap</span>, <span class="font-mono-hacker">Wireshark</span>, <span class="font-mono-hacker">Burp Suite</span>, and <span class="font-mono-hacker">Metasploit</span>.</li>
+                    </ul>
+                </div>
+            </div>
 
-  </header><!-- End Header -->
+            <!-- Skills & Expertise Card -->
+            <div class="card p-8 rounded-lg max-w-4xl mx-auto text-gray-200">
+                <h3 class="text-2xl font-semibold text-lime-400 mb-4 font-mono-hacker">Skills & Expertise</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-xl font-semibold text-lime-300 mb-2">Primary Skills:</h4>
+                        <ul class="list-disc list-inside text-sm leading-relaxed space-y-1">
+                            <li><span class="text-lime-300">Penetration Testing</span> (Web, Network, Android)</li>
+                            <li><span class="text-lime-300">24×7 Security Monitoring</span> & Incident Detection</li>
+                            <li><span class="text-lime-300">Digital Forensics</span> & Incident Response</li>
+                            <li><span class="text-lime-300">Vulnerability Assessment</span> & Reporting</li>
+                            <li>Security Awareness Tutoring (1:1 & Group)</li>
+                            <li>Malware Analysis (Basic to Intermediate)</li>
+                            <li>Security Tools Mastery (<span class="font-mono-hacker">Nmap</span>, <span class="font-mono-hacker">Burp Suite</span>, <span class="font-mono-hacker">Wireshark</span>, <span class="font-mono-hacker">Metasploit</span>, <span class="font-mono-hacker">John the Ripper</span>)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-lime-300 mb-2">Areas of Expertise:</h4>
+                        <ul class="list-disc list-inside text-sm leading-relaxed space-y-1">
+                            <li>Web Application Security</li>
+                            <li>Network Security & Reconnaissance</li>
+                            <li>Threat Hunting & Privilege Escalation Simulation</li>
+                            <li>Beginner-Friendly Cybersecurity Training</li>
+                            <li>Security Reporting & Remediation Guidance</li>
+                            <li>Small Business Security Implementation</li>
+                            <li>Cloud Security (Simulated Environments)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Akhil Binu</h1>
-      <h2>I'm a Cybersecurity Student Self learner</h2>
-      <a href="about.html" class="btn-about">About Me</a>
-    </div>
-  </section><!-- End Hero -->
+    <!-- Portfolio / Projects Section -->
+    <section id="portfolio" class="py-16 md:py-24 border-b border-lime-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 section-heading">Portfolio & Projects</h2>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Akhil Binu</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="">Akhil Binu</a>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
+            <!-- Project Card: Automated Website Vulnerability Scanner -->
+            <div class="card p-8 rounded-lg max-w-4xl mx-auto text-gray-200">
+                <h3 class="text-2xl font-semibold text-lime-400 mb-4 font-mono-hacker">Automated Website Vulnerability Scanner</h3>
+                <div class="md:flex items-center gap-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="https://placehold.co/600x400/000/39FF14?text=Scanner+Screenshot" alt="Automated Website Vulnerability Scanner Screenshot" class="rounded-lg shadow-lg border border-lime-600 w-full h-auto object-cover" style="box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);">
+                    </div>
+                    <div class="md:w-1/2 text-left">
+                        <p class="leading-relaxed mb-4">
+                            This project features a robust <span class="text-lime-300 font-semibold">Dynamic Application Security Testing (DAST)</span> methodology to automatically scan web applications for common vulnerabilities.
+                        </p>
+                        <h4 class="text-xl font-semibold text-lime-300 mb-2">Key Features:</h4>
+                        <ul class="list-disc list-inside text-sm leading-relaxed space-y-1 mb-4">
+                            <li>Comprehensive scanning for vulnerabilities like <span class="font-mono-hacker">SQL Injection</span>, <span class="font-mono-hacker">Cross-Site Scripting (XSS)</span>, <span class="font-mono-hacker">Command Injection</span>, <span class="font-mono-hacker">Path Traversal</span>, and <span class="font-mono-hacker">Insecure Server Configuration</span>.</li>
+                            <li>Automated generation of detailed <span class="text-lime-300 font-semibold">vulnerability reports</span> with severity levels and remediation guidance.</li>
+                            <li>User-friendly interface designed for ease of use by <span class="text-lime-300 font-semibold">startups, small businesses</span>, and aspiring <span class="text-lime-300 font-semibold">security learners</span>.</li>
+                        </ul>
+                        <p class="leading-relaxed">
+                            This tool provides an efficient first line of defense, helping to identify and address security weaknesses early in the development lifecycle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional projects can be added here following a similar card structure -->
+        </div>
+    </section>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 border-b border-lime-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 section-heading">My Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Card 1: Penetration Testing -->
+                <div class="card p-6 rounded-lg text-gray-200">
+                    <div class="text-lime-400 mb-4 text-5xl">
+                        <!-- Icon: Lock with arrow pointing in (representing breaching security) -->
+                        <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path><path d="m15 15-3 3-3-3"></path><path d="M12 18v-6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">Penetration Testing</h3>
+                    <p class="text-sm leading-relaxed">
+                        Simulated cyberattacks on your web applications, networks, and Android apps to uncover exploitable vulnerabilities before malicious actors do.
+                    </p>
+                </div>
+                <!-- Service Card 2: 24x7 Security Monitoring -->
+                <div class="card p-6 rounded-lg text-gray-200">
+                    <div class="text-lime-400 mb-4 text-5xl">
+                        <!-- Icon: Eye (representing constant vigilance) -->
+                        <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">24×7 Security Monitoring</h3>
+                    <p class="text-sm leading-relaxed">
+                        Continuous surveillance of your systems for suspicious activities, enabling rapid incident detection and response to minimize impact.
+                    </p>
+                </div>
+                <!-- Service Card 3: Vulnerability Assessment & Reporting -->
+                <div class="card p-6 rounded-lg text-gray-200">
+                    <div class="text-lime-400 mb-4 text-5xl">
+                        <!-- Icon: Shield with exclamation mark (representing identifying weaknesses) -->
+                        <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">Vulnerability Assessment</h3>
+                    <p class="text-sm leading-relaxed">
+                        Systematic identification, classification, and prioritization of security weaknesses, complete with clear, actionable remediation reports.
+                    </p>
+                </div>
+                <!-- Service Card 4: Security Awareness Tutoring -->
+                <div class="card p-6 rounded-lg text-gray-200">
+                    <div class="text-lime-400 mb-4 text-5xl">
+                        <!-- Icon: Book (representing education/tutoring) -->
+                        <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-lime-300 mb-2 font-mono-hacker">Security Tutoring</h3>
+                    <p class="text-sm leading-relaxed">
+                        Personalized (1:1 and group) cybersecurity training, empowering individuals and teams with essential security knowledge and best practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- Call to Action Section (Repeated for emphasis before contact) -->
+    <section class="bg-gradient-to-r from-black via-gray-900 to-black text-white py-16 md:py-20 rounded-t-3xl shadow-inner border-t border-lime-700">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-lime-300 section-heading">Ready to Secure Your Digital Future?</h2>
+            <p class="text-lg md:text-xl mb-8 opacity-90 text-gray-300">
+                Let's connect and discuss how my expertise can fortify your defenses.
+            </p>
+            <a href="#contact" class="btn-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+                Get a Security Consultation
+            </a>
+        </div>
+    </section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-lime-400 mb-12 section-heading">Get in Touch</h2>
+            <div class="max-w-xl mx-auto card p-8 rounded-lg text-gray-200">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left text-sm font-medium text-lime-300 mb-1">Name</label>
+                        <input type="text" id="name" name="from_name" class="contact-form-input mt-1 block w-full px-4 py-3 rounded-md shadow-sm placeholder-gray-500 sm:text-base" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-sm font-medium text-lime-300 mb-1">Email</label>
+                        <input type="email" id="email" name="from_email" class="contact-form-input mt-1 block w-full px-4 py-3 rounded-md shadow-sm placeholder-gray-500 sm:text-base" placeholder="your.email@example.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left text-sm font-medium text-lime-300 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5" class="contact-form-input mt-1 block w-full px-4 py-3 rounded-md shadow-sm placeholder-gray-500 sm:text-base" placeholder="Tell me about your cybersecurity needs..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full btn-primary font-semibold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 focus:ring-offset-black">
+                        Send Secure Message
+                    </button>
+                    <!-- Message display area -->
+                    <div id="form-message" class="mt-4 text-center font-semibold"></div>
+                </form>
+                
+                <div class="mt-8 pt-6 border-t border-gray-700 text-sm text-center space-y-3">
+                    <p class="text-lime-300 font-semibold">Connect Directly:</p>
+                    <p>Email: <a href="mailto:akhilbinuofficial@gmail.com" class="text-lime-400 hover:text-lime-200 hover:underline">akhilbinuofficial@gmail.com</a></p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/akhilbinu" target="_blank" rel="noopener noreferrer" class="text-lime-400 hover:text-lime-200 hover:underline flex items-center justify-center">
+                        <!-- LinkedIn SVG Icon -->
+                        <svg class="inline-block w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.766 1.75-1.766 1.75.79 1.75 1.766-.783 1.766-1.75 1.766zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"></path></svg>
+                        linkedin.com/in/akhilbinu
+                    </a></p>
+                    <p>Mobile: <a href="tel:+918330875109" class="text-lime-400 hover:text-lime-200 hover:underline">+91 83308 75109</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-8 rounded-t-lg border-t border-lime-700">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Akhil Binu. All rights reserved.</p>
+            <p class="mt-2">Fortifying Digital Defenses with Precision & Expertise</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+
+                // Scroll to the target section smoothly
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close the mobile menu if it's open after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Toggle mobile menu visibility when the hamburger button is clicked
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Show or hide the mobile menu
+        });
+
+        // Hide mobile menu when clicking anywhere outside of it or its button
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden'); // Hide the menu
+            }
+        });
+
+        // Intersection Observer for scroll-triggered animations
+        const animateElements = document.querySelectorAll('.animate-fade-in-down, .animate-fade-in-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // When the element enters the viewport, play its animation
+                    entry.target.style.animationPlayState = 'running';
+                } else {
+                    // Optionally, pause the animation if it leaves the viewport
+                    // This can be removed if you want animations to only play once
+                    entry.target.style.animationPlayState = 'paused'; 
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when at least 10% of the element is visible
+
+        // Initialize animations: set them to paused and observe them
+        animateElements.forEach(element => {
+            element.style.animationPlayState = 'paused'; // Ensure animations are paused initially
+            observer.observe(element); // Start observing the element for intersection
+        });
+
+        // EmailJS Integration Logic
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            formMessage.textContent = 'Sending message...';
+            formMessage.className = 'mt-4 text-center font-semibold text-lime-400'; // Reset styling
+
+            emailjs.sendForm('service_hil8nfb', 'template_u3ht3v2', this)
+                .then(function() {
+                    formMessage.textContent = 'Message sent successfully! I will get back to you soon.';
+                    formMessage.className = 'mt-4 text-center font-semibold text-green-500'; // Success color
+                    contactForm.reset(); // Clear the form
+                }, function(error) {
+                    console.error('FAILED...', error); // Log error for debugging
+                    formMessage.textContent = 'Failed to send message. Please try again later or contact me directly.';
+                    formMessage.className = 'mt-4 text-center font-semibold text-red-500'; // Error color
+                });
+        });
+    </script>
 </body>
-
 </html>
