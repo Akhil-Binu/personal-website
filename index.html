@@ -20,25 +20,28 @@
         })();
     </script>
     <style>
-        /* Custom Font Imports - Ensure we have them */
+        /* Custom Font Imports */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
         /* Design System Roots */
         :root {
-            /* Premium Cyber Palette */
-            --bg-dark: #030712;
-            /* Deepest Navy/Black */
-            --bg-card: rgba(17, 24, 39, 0.65);
-            --primary-accent: #22d3ee;
-            /* Electric Cyan */
-            --secondary-accent: #a3e635;
-            /* Lime Punch */
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            /* Hacker / Matrix Palette */
+            --bg-dark: #020202;
+            /* Almost pure black */
+            --bg-card: rgba(0, 20, 0, 0.7);
+            /* Dark Green Tint */
+            --primary-accent: #00ff41;
+            /* Matrix Green */
+            --secondary-accent: #008f11;
+            /* Darker Matrix Green */
+            --alert-color: #ff003c;
+            /* Cyberpunk Red for contrast */
+            --text-main: #e0e0e0;
+            --text-muted: #8aab8a;
 
             /* Glow Effects */
-            --glow-primary: 0 0 20px rgba(34, 211, 238, 0.5);
-            --glow-secondary: 0 0 20px rgba(163, 230, 53, 0.5);
+            --glow-primary: 0 0 20px rgba(0, 255, 65, 0.6);
+            --glow-secondary: 0 0 15px rgba(0, 143, 17, 0.5);
         }
 
         body {
@@ -46,10 +49,19 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             overflow-x: hidden;
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(163, 230, 53, 0.08), transparent 25%);
-            background-attachment: fixed;
+            /* Removed static gradient background in favor of Matrix Rain */
+        }
+
+        /* Matrix Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+            /* Subtle background effect */
         }
 
         .font-mono-cyber {
@@ -59,24 +71,25 @@
         /* Glassmorphism Utilities */
         .glass-panel {
             background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 20, 0, 0.5);
         }
 
         .glass-nav {
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+            background: rgba(2, 2, 2, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
         }
 
         /* Gradient Text */
         .text-gradient {
-            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            background: linear-gradient(135deg, var(--primary-accent), #80ff80);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
         }
 
         /* Cyber Button */
@@ -90,6 +103,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            background: rgba(0, 255, 65, 0.05);
         }
 
         .btn-cyber::before {
@@ -99,15 +113,16 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.4), transparent);
             transition: left 0.5s ease;
         }
 
         .btn-cyber:hover {
-            background: rgba(34, 211, 238, 0.1);
+            background: rgba(0, 255, 65, 0.2);
             box-shadow: var(--glow-primary);
-            text-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+            text-shadow: 0 0 8px var(--primary-accent);
             transform: translateY(-2px);
+            border-color: #fff;
         }
 
         .btn-cyber:hover::before {
@@ -131,28 +146,60 @@
             mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            opacity: 0.3;
+            opacity: 0.5;
             transition: opacity 0.3s ease;
             pointer-events: none;
         }
 
         .cyber-card:hover {
             transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 10px 40px -10px rgba(34, 211, 238, 0.15);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
         }
 
         .cyber-card:hover::after {
             opacity: 1;
         }
 
-        /* Animations */
-        @keyframes scanline {
+        /* Glitch Animation */
+        @keyframes glitch {
             0% {
-                transform: translateY(-100%);
+                transform: translate(0)
+            }
+
+            20% {
+                transform: translate(-2px, 2px)
+            }
+
+            40% {
+                transform: translate(-2px, -2px)
+            }
+
+            60% {
+                transform: translate(2px, 2px)
+            }
+
+            80% {
+                transform: translate(2px, -2px)
             }
 
             100% {
-                transform: translateY(100%);
+                transform: translate(0)
+            }
+        }
+
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: var(--primary-accent);
+        }
+
+        /* Scanline Overlay (Moving) */
+        @keyframes scanline-move {
+            0% {
+                transform: translateY(-100vh);
+            }
+
+            100% {
+                transform: translateY(100vh);
             }
         }
 
@@ -162,11 +209,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5) 50%);
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 255, 65, 0.05) 50%);
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.1;
+        }
+
+        .scan-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-accent);
+            opacity: 0.3;
+            box-shadow: 0 0 15px var(--primary-accent);
+            animation: scanline-move 4s linear infinite;
+            z-index: 9998;
+            pointer-events: none;
         }
 
         @keyframes float {
@@ -190,12 +250,12 @@
             0%,
             100% {
                 opacity: 0.5;
-                box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+                box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
             }
 
             50% {
                 opacity: 1;
-                box-shadow: 0 0 35px rgba(34, 211, 238, 0.5);
+                box-shadow: 0 0 35px rgba(0, 255, 65, 0.5);
             }
         }
 
@@ -224,6 +284,8 @@
 </head>
 
 <body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scan-bar"></div>
     <div class="scanline-overlay"></div>
 
     <!-- Navigation Bar -->
@@ -309,7 +371,7 @@
             </div>
 
             <!-- Name and Tagline -->
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-down"
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-down glitch-hover cursor-default"
                 style="animation-delay: 0.2s;">
                 <span class="text-gradient">Akhil Binu</span>
             </h1>
@@ -587,9 +649,11 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     </div>
                     <p class="text-cyan-400 text-xs font-mono-cyber mb-2">JULY 20, 2025</p>
-                    <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">The ELK Stack
-                    Security Powerhouse for Log Analysis</h3>
-                    <p class="text-gray-400 text-sm">Navigating the security powerhouse of raw logs into actionable security intelligence efficiently..</p>
+                    <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">The ELK
+                        Stack
+                        Security Powerhouse for Log Analysis</h3>
+                    <p class="text-gray-400 text-sm">Navigating the security powerhouse of raw logs into actionable
+                        security intelligence efficiently..</p>
                 </a>
 
                 <!-- Blog 2 -->
@@ -793,6 +857,47 @@
                     formMessage.textContent = '> Transmission failed. Connection error.';
                     formMessage.className = 'mt-4 text-center font-mono-cyber text-red-500';
                 });
+        });
+
+        // Matrix Rain Animation
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Green text
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
     </script>
 </body>
