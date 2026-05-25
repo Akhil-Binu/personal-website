@@ -1,1125 +1,893 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhil Binu - Cybersecurity Specialist</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter for general text, and Share Tech Mono for code-like sections -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Share_Tech_Mono&display=swap"
-        rel="stylesheet">
-    <!-- EmailJS CDN -->
+    
+    <!-- Search Engine Optimization (SEO) -->
+    <title>Akhil Binu - Cybersecurity Specialist & Threat Researcher</title>
+    <meta name="description" content="Professional portfolio of Akhil Binu, a Cybersecurity Specialist specializing in penetration testing, vulnerability assessment, 24/7 security monitoring, and expert tutoring.">
+    <meta name="keywords" content="Akhil Binu, Cybersecurity, Penetration Testing, VAPT, Security Researcher, Digital Forensics, Nmap, Burp Suite">
+    <meta name="author" content="Akhil Binu">
+    
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Akhil Binu - Cybersecurity Specialist">
+    <meta property="og:description" content="Fortifying digital ecosystems with proactive threat detection, advanced penetration testing, and robust risk remediation.">
+    <meta property="og:image" content="images/Akhil_ai_formal.png">
+    
+    <!-- Link to custom stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- EmailJS Integration -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-        // Initialize EmailJS with your Public Key
         (function () {
-            emailjs.init("yvpBBeVvA7lUbdSch"); // Your EmailJS Public Key
+            emailjs.init("yvpBBeVvA7lUbdSch"); // EmailJS Public Key
         })();
     </script>
-    <style>
-        /* Custom Font Imports */
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-
-        /* Design System Roots */
-        :root {
-            /* Hacker / Matrix Palette */
-            --bg-dark: #020202;
-            /* Almost pure black */
-            --bg-card: rgba(0, 20, 0, 0.7);
-            /* Dark Green Tint */
-            --primary-accent: #00ff41;
-            /* Matrix Green */
-            --secondary-accent: #008f11;
-            /* Darker Matrix Green */
-            --alert-color: #ff003c;
-            /* Cyberpunk Red for contrast */
-            --text-main: #e0e0e0;
-            --text-muted: #8aab8a;
-
-            /* Glow Effects */
-            --glow-primary: 0 0 20px rgba(0, 255, 65, 0.6);
-            --glow-secondary: 0 0 15px rgba(0, 143, 17, 0.5);
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-            /* Removed static gradient background in favor of Matrix Rain */
-        }
-
-        /* Matrix Canvas */
-        #matrix-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
-            /* Subtle background effect */
-        }
-
-        .font-mono-cyber {
-            font-family: 'Space Mono', monospace;
-        }
-
-        /* Glassmorphism Utilities */
-        .glass-panel {
-            background: var(--bg-card);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 20, 0, 0.5);
-        }
-
-        .glass-nav {
-            background: rgba(2, 2, 2, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
-        }
-
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(135deg, var(--primary-accent), #80ff80);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-        }
-
-        /* Cyber Button */
-        .btn-cyber {
-            position: relative;
-            background: transparent;
-            color: var(--primary-accent);
-            border: 1px solid var(--primary-accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            background: rgba(0, 255, 65, 0.05);
-        }
-
-        .btn-cyber::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-cyber:hover {
-            background: rgba(0, 255, 65, 0.2);
-            box-shadow: var(--glow-primary);
-            text-shadow: 0 0 8px var(--primary-accent);
-            transform: translateY(-2px);
-            border-color: #fff;
-        }
-
-        .btn-cyber:hover::before {
-            left: 100%;
-        }
-
-        /* Card Interactions */
-        .cyber-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cyber-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid transparent;
-            background: linear-gradient(135deg, var(--primary-accent), transparent, var(--secondary-accent)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .cyber-card:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-        }
-
-        .cyber-card:hover::after {
-            opacity: 1;
-        }
-
-        /* Glitch Animation */
-        @keyframes glitch {
-            0% {
-                transform: translate(0)
-            }
-
-            20% {
-                transform: translate(-2px, 2px)
-            }
-
-            40% {
-                transform: translate(-2px, -2px)
-            }
-
-            60% {
-                transform: translate(2px, 2px)
-            }
-
-            80% {
-                transform: translate(2px, -2px)
-            }
-
-            100% {
-                transform: translate(0)
-            }
-        }
-
-        .glitch-hover:hover {
-            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-            color: var(--primary-accent);
-        }
-
-        /* Scanline Overlay (Moving) */
-        @keyframes scanline-move {
-            0% {
-                transform: translateY(-100vh);
-            }
-
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        .scanline-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, rgba(0, 255, 65, 0.05) 50%);
-            background-size: 100% 4px;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .scan-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--primary-accent);
-            opacity: 0.3;
-            box-shadow: 0 0 15px var(--primary-accent);
-            animation: scanline-move 4s linear infinite;
-            z-index: 9998;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-
-            0%,
-            100% {
-                opacity: 0.5;
-                box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-            }
-
-            50% {
-                opacity: 1;
-                box-shadow: 0 0 35px rgba(0, 255, 65, 0.5);
-            }
-        }
-
-        .animate-pulse-glow {
-            animation: pulse-glow 3s infinite;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-accent);
-        }
-    </style>
 </head>
-
 <body>
+    <!-- Matrix Particle Canvas -->
     <canvas id="matrix-canvas"></canvas>
-    <div class="scan-bar"></div>
-    <div class="scanline-overlay"></div>
+    
+    <!-- Ambient Light Background Gradients -->
+    <div class="ambient-light"></div>
+    <div class="ambient-light"></div>
+    
+    <!-- Scanlines Grid Overlay -->
+    <div class="scanlines"></div>
 
-    <!-- Navigation Bar -->
-    <nav class="glass-nav sticky top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Brand name -->
-            <a href="#home" class="text-2xl font-bold font-mono-cyber tracking-wider flex items-center group">
+    <!-- HUD Header / Navigation -->
+    <header class="hud-nav" id="hud-nav">
+        <div class="container nav-wrapper">
+            <!-- Brand Logo -->
+            <a href="#home" class="logo-link" id="logo-anchor">
                 <!-- Shield Icon -->
-                <div
-                    class="relative w-8 h-8 mr-3 text-cyan-400 group-hover:text-lime-400 transition-colors duration-300">
-                    <svg class="w-full h-full" fill="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.22l5.77 2.56-5.77 2.56-5.77-2.56L12 3.22zm0 17.5c-3.41-1.46-6-5.26-6-9.72V6.65l6-2.67 6 2.67v4.35c0 4.46-2.59 8.26-6 9.72z" />
-                    </svg>
-                    <div
-                        class="absolute inset-0 blur-md bg-cyan-400 opacity-40 group-hover:opacity-60 transition-opacity">
-                    </div>
-                </div>
-                <span class="text-gradient">AKHIL BINU</span>
+                <svg class="logo-shield" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span class="logo-text">AKHIL BINU</span>
+                <span class="logo-status" id="sys-status">SYS: ONLINE</span>
             </a>
 
-            <!-- Desktop navigation links -->
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home"
-                    class="text-gray-300 hover:text-cyan-400 font-medium transition-colors text-sm uppercase tracking-widest">Home</a>
-                <a href="#about"
-                    class="text-gray-300 hover:text-cyan-400 font-medium transition-colors text-sm uppercase tracking-widest">About</a>
-                <a href="#portfolio"
-                    class="text-gray-300 hover:text-cyan-400 font-medium transition-colors text-sm uppercase tracking-widest">Portfolio</a>
-                <a href="#services"
-                    class="text-gray-300 hover:text-cyan-400 font-medium transition-colors text-sm uppercase tracking-widest">Services</a>
-                <a href="#blog"
-                    class="text-gray-300 hover:text-cyan-400 font-medium transition-colors text-sm uppercase tracking-widest">Blog</a>
-                <a href="#contact" class="btn-cyber px-6 py-2 rounded text-sm font-bold">Contact</a>
-            </div>
+            <!-- Navigation Links -->
+            <nav class="nav-links" id="main-nav">
+                <a href="#home" class="nav-link active" id="nav-home">Home</a>
+                <a href="#about" class="nav-link" id="nav-about">About</a>
+                <a href="#skills" class="nav-link" id="nav-skills">Skills</a>
+                <a href="#certifications" class="nav-link" id="nav-certs">Certifications</a>
+                <a href="#portfolio" class="nav-link" id="nav-portfolio">Portfolio</a>
+                <a href="#services" class="nav-link" id="nav-services">Services</a>
+                <a href="#blog" class="nav-link" id="nav-blog">Insights</a>
+                <a href="#contact" class="btn-cyber btn-cyber-solid" id="nav-contact-btn">Contact</a>
+            </nav>
 
-            <!-- Mobile menu button -->
-            <button id="mobile-menu-button"
-                class="md:hidden p-2 text-cyan-400 hover:bg-white/5 rounded-md focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-nav-toggle" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
         </div>
+    </header>
 
-        <!-- Mobile Menu dropdown -->
-        <div id="mobile-menu"
-            class="hidden md:hidden glass-panel mt-2 py-4 mx-4 rounded-xl absolute top-full left-0 right-0 z-40">
-            <a href="#home"
-                class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 font-medium border-l-2 border-transparent hover:border-cyan-400 transition-all">Home</a>
-            <a href="#about"
-                class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 font-medium border-l-2 border-transparent hover:border-cyan-400 transition-all">About</a>
-            <a href="#portfolio"
-                class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 font-medium border-l-2 border-transparent hover:border-cyan-400 transition-all">Portfolio</a>
-            <a href="#services"
-                class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 font-medium border-l-2 border-transparent hover:border-cyan-400 transition-all">Services</a>
-            <a href="#blog"
-                class="block px-6 py-3 text-gray-300 hover:text-cyan-400 hover:bg-white/5 font-medium border-l-2 border-transparent hover:border-cyan-400 transition-all">Blog</a>
-            <a href="#contact"
-                class="block px-6 py-3 text-cyan-400 font-bold hover:bg-white/5 border-l-2 border-transparent hover:border-cyan-400 transition-all">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="relative py-24 md:py-32 flex items-center justify-center min-h-[90vh] overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none">
-            <!-- Background Glows -->
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-glow">
-            </div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lime-500/10 rounded-full blur-3xl animate-pulse-glow"
-                style="animation-delay: 1.5s;"></div>
-        </div>
-
-        <div class="relative container mx-auto px-4 text-center z-10">
-            <!-- Profile Picture -->
-            <div class="mb-10 relative inline-block animate-float">
-                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-lime-400 rounded-full blur opacity-75">
-                </div>
-                <img src="/images/Akhil_ai_formal.png" alt="Akhil Binu Profile Picture"
-                    class="relative rounded-full mx-auto w-40 h-40 md:w-48 md:h-48 object-cover border-2 border-white/20">
-            </div>
-
-            <!-- Name and Tagline -->
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-down glitch-hover cursor-default"
-                style="animation-delay: 0.2s;">
-                <span class="text-gradient">Akhil Binu</span>
-            </h1>
-
-            <div class="flex items-center justify-center mb-8 gap-3 animate-fade-in-up" style="animation-delay: 0.4s;">
-                <span class="h-px w-8 bg-gray-700"></span>
-                <p class="text-xl md:text-2xl font-mono-cyber text-cyan-400 tracking-tight">
-                    Full-Stack Cybersecurity Specialist
-                </p>
-                <span class="h-px w-8 bg-gray-700"></span>
-            </div>
-
-            <!-- Brief Introduction -->
-            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto text-gray-400 leading-relaxed animate-fade-in-up"
-                style="animation-delay: 0.6s;">
-                Fortifying digital ecosystems with proactive threat detection, advanced penetration testing, and robust
-                risk remediation strategies.
-            </p>
-
-            <!-- Call to Action Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8 animate-fade-in-up"
-                style="animation-delay: 0.8s;">
-                <a href="#services" class="btn-cyber px-8 py-3.5 text-base font-bold tracking-widest">
-                    View Services
-                </a>
-                <a href="#portfolio"
-                    class="group relative px-8 py-3.5 rounded bg-gray-800 text-white font-bold hover:bg-gray-700 transition-all border border-gray-700 overflow-hidden">
-                    <div
-                        class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]">
+    <!-- Main Content Grid -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-sec">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        <span>SECURE PORTFOLIO RESOLVED</span>
                     </div>
-                    Explore Projects
-                </a>
+                    <h1 class="hero-title">
+                        Securing Digital<br>
+                        <span class="hero-title-name">Environments</span>
+                    </h1>
+                    <h2 class="hero-subtitle">> Akhil Binu</h2>
+                    <p class="hero-desc">
+                        Fortifying digital ecosystems with proactive threat detection, advanced penetration testing, and robust risk remediation strategies.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#services" class="btn-cyber btn-cyber-solid">View Services</a>
+                        <a href="#portfolio" class="btn-cyber btn-secondary">Explore Projects</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <div class="metric-item">
+                            <span class="metric-number">2+</span>
+                            <span class="metric-label">Years Experience</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">10+</span>
+                            <span class="metric-label">Certifications</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">1:1</span>
+                            <span class="metric-label">Expert Tutoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="holo-frame">
+                        <div class="holo-ring"></div>
+                        <div class="holo-ring-inner"></div>
+                        <div class="profile-hex-container">
+                            <img src="images/Akhil_ai_formal.png" alt="Akhil Binu Profile Picture" width="300" height="300">
+                        </div>
+                        <div class="holo-glow"></div>
+                        <div class="holo-scanline"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 relative">
-        <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white tracking-tight">About <span
-                    class="text-gradient">Me</span></h2>
+        <!-- Interactive Terminal Simulator Section -->
+        <section id="terminal" class="terminal-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">COMMAND INTERFACE</span>
+                    <h2 class="section-title">Interactive <span>Console</span></h2>
+                    <div class="section-divider"></div>
+                </div>
 
-            <!-- Personal Bio Card -->
-            <div class="glass-panel p-8 md:p-10 rounded-2xl mb-12 max-w-4xl mx-auto cyber-card">
-                <h3 class="text-2xl font-bold text-cyan-400 mb-6 font-mono-cyber flex items-center">
-                    <span class="mr-3">></span> Profile_Overview
-                </h3>
-                <p class="leading-relaxed mb-6 text-gray-300 text-lg">
-                    With <span class="text-cyan-300 font-semibold">2 years of dedicated experience</span> in
-                    cybersecurity, I, Akhil Binu, specialize in safeguarding digital assets through advanced <span
-                        class="text-lime-400 font-semibold">penetration testing</span>, <span
-                        class="text-lime-400 font-semibold">vulnerability assessment</span>, and continuous <span
-                        class="text-lime-400 font-semibold">24×7 security monitoring</span>.
-                </p>
-                <p class="leading-relaxed text-gray-300 text-lg">
-                    My mission is to empower businesses and individuals to identify and remediate cybersecurity risks
-                    effectively. I am passionate about knowledge sharing, offering <span
-                        class="text-cyan-300 font-semibold">1:1 and group tutoring</span> to foster the next generation
-                    of cybersecurity talent.
-                </p>
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="term-btn term-btn-red"></span>
+                            <span class="term-btn term-btn-yellow"></span>
+                            <span class="term-btn term-btn-green"></span>
+                        </div>
+                        <div class="terminal-title">guest@sys-terminal: ~</div>
+                        <div class="terminal-node-status">SECURE LINK</div>
+                    </div>
+                    <div class="terminal-body" id="terminal-body">
+                        <div class="terminal-output"></div>
+                        <div class="terminal-input-line">
+                            <span class="term-prompt">guest@akhilbinu:~$</span>
+                            <input type="text" id="terminal-input" placeholder="" autocomplete="off" autofocus>
+                            <span class="term-caret">_</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Shortcut buttons -->
+                <div class="terminal-shortcuts">
+                    <button class="term-shortcut-btn" data-cmd="about">about</button>
+                    <button class="term-shortcut-btn" data-cmd="skills">skills</button>
+                    <button class="term-shortcut-btn" data-cmd="certs">certs</button>
+                    <button class="term-shortcut-btn" data-cmd="projects">projects</button>
+                    <button class="term-shortcut-btn" data-cmd="contact">contact</button>
+                    <button class="term-shortcut-btn" data-cmd="clear">clear</button>
+                </div>
             </div>
+        </section>
 
-            <!-- Experience & Education Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- Education -->
-                <div class="glass-panel p-8 rounded-2xl cyber-card h-full">
-                    <h3 class="text-xl font-bold text-white mb-6 font-mono-cyber border-b border-gray-700 pb-2">
-                        Education</h3>
+        <!-- About Me Section -->
+        <section id="about" class="about-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">IDENTITY DATABASE</span>
+                    <h2 class="section-title">About <span>Me</span></h2>
+                    <div class="section-divider"></div>
+                </div>
 
-                    <div class="mb-8 relative pl-6 border-l border-gray-700">
-                        <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-cyan-500 rounded-full"></div>
-                        <h4 class="text-lg font-semibold text-cyan-300">B.Tech in Computer Science</h4>
-                        <p class="text-gray-400 text-sm mb-2">College Of Engineering Kallooppara | 2019 - 2023</p>
-                        <p class="text-gray-400 text-sm">Mastered core CS concepts, AI, and Cybersecurity fundamentals.
+                <div class="about-grid">
+                    <div class="cyber-card about-bio">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        
+                        <p class="about-bio-text">
+                            With <span>2 years of dedicated experience</span> in cybersecurity, I, Akhil Binu, specialize in safeguarding digital assets through advanced <span>penetration testing</span>, <span>vulnerability assessment</span>, and continuous <span>24x7 security monitoring</span>.
+                        </p>
+                        <p class="about-bio-text" style="margin-bottom: 0;">
+                            My mission is to empower businesses and individuals to identify and remediate cybersecurity risks effectively. I am passionate about knowledge sharing, offering <span>1:1 and group tutoring</span> to foster the next generation of cybersecurity talent.
                         </p>
                     </div>
-
-                    <div class="relative pl-6 border-l border-gray-700">
-                        <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-gray-600 rounded-full"></div>
-                        <h4 class="text-lg font-semibold text-cyan-300">Secondary Education</h4>
-                        <p class="text-gray-400 text-sm">St. Thomas Higher Secondary School | 2017 - 2019</p>
-                    </div>
                 </div>
 
-                <!-- Work Experience -->
-                <div class="glass-panel p-8 rounded-2xl cyber-card h-full">
-                    <h3 class="text-xl font-bold text-white mb-6 font-mono-cyber border-b border-gray-700 pb-2">
-                        Experience</h3>
-
-                    <div class="mb-8 relative pl-6 border-l border-gray-700">
-                        <div
-                            class="absolute -left-1.5 top-1.5 w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_10px_rgba(163,230,53,0.5)]">
-                        </div>
-                        <h4 class="text-lg font-semibold text-lime-400">Security Researcher & Tutor</h4>
-                        <p class="text-gray-400 text-sm mb-2">Upwork · Freelance | Jan 2025 – Present</p>
-                    </div>
-
-                    <div class="mb-8 relative pl-6 border-l border-gray-700">
-                        <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-cyan-500 rounded-full"></div>
-                        <h4 class="text-lg font-semibold text-cyan-300">Digital Forensics Intern</h4>
-                        <p class="text-gray-400 text-sm mb-2">Cyber Secured India | Apr 2025 – Jun 2025</p>
-                    </div>
-
-                    <div class="relative pl-6 border-l border-gray-700">
-                        <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-cyan-500 rounded-full"></div>
-                        <h4 class="text-lg font-semibold text-cyan-300">Founder & CTO</h4>
-                        <p class="text-gray-400 text-sm mb-2">Brotechy | Jan 2022 – Feb 2025</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills -->
-            <div class="mt-12 max-w-6xl mx-auto">
-                <div class="glass-panel p-8 rounded-2xl cyber-card">
-                    <h3 class="text-xl font-bold text-white mb-6 font-mono-cyber text-center">Technical Arsenal</h3>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-cyan-300 text-sm border border-cyan-500/30">Penetration
-                            Testing</span>
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-cyan-300 text-sm border border-cyan-500/30">Network
-                            Security</span>
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-cyan-300 text-sm border border-cyan-500/30">Digital
-                            Forensics</span>
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-cyan-300 text-sm border border-cyan-500/30">Vulnerability
-                            Assessment</span>
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-lime-400 text-sm border border-lime-500/30">Nmap</span>
-                        <span class="px-4 py-2 bg-white/5 rounded text-lime-400 text-sm border border-lime-500/30">Burp
-                            Suite</span>
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-lime-400 text-sm border border-lime-500/30">Wireshark</span>
-                        <span
-                            class="px-4 py-2 bg-white/5 rounded text-lime-400 text-sm border border-lime-500/30">Metasploit</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="mt-12 max-w-6xl mx-auto">
-                <div class="glass-panel p-8 rounded-2xl cyber-card">
-                    <h3 class="text-xl font-bold text-white mb-8 font-mono-cyber text-center">
-                        <span class="text-gradient">Certifications::Unlocked</span>
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Cert 1 -->
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-PS2BVMJ54L.pdf"
-                            target="_blank" class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">
-                                        Security Engineer</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">TryHackMe • VIEW_CERT</p>
-                                </div>
+                <!-- Timelines -->
+                <div class="about-timelines">
+                    <!-- Education Timeline -->
+                    <div class="timeline-column">
+                        <h3 class="timeline-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                            </svg>
+                            Education
+                        </h3>
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-marker active"></div>
+                                <span class="time-period">2019 - 2023</span>
+                                <h4 class="timeline-role">B.Tech in Computer Science</h4>
+                                <p class="timeline-inst">College Of Engineering Kallooppara</p>
+                                <p class="timeline-desc">Mastered core computer science concepts, software engineering, AI algorithms, and security architectures.</p>
                             </div>
-                        </a>
-
-                        <!-- Cert 2 -->
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-JANZIS6T2E.pdf"
-                            target="_blank" class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">SOC
-                                        Level 1</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">TryHackMe • VIEW_CERT</p>
-                                </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <span class="time-period">2017 - 2019</span>
+                                <h4 class="timeline-role">Secondary Education</h4>
+                                <p class="timeline-inst">St. Thomas Higher Secondary School</p>
+                                <p class="timeline-desc">Focused on Computer Science, Mathematics, and Physics fields.</p>
                             </div>
-                        </a>
-
-                        <!-- Cert 3 -->
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-BAUH8J0NU4.pdf"
-                            target="_blank" class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">Advent
-                                        of Cyber 2025</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">TryHackMe • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- Cert 4 -->
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-FXINOTLTVJ.pdf"
-                            target="_blank" class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">Pre
-                                        Security</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">TryHackMe • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- OPSWAT Cert 1 -->
-                        <a href="https://learn.opswatacademy.com/certificate/EWT1ZgyZVw" target="_blank"
-                            class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">Email
-                                        Security Associate</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">OPSWAT • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- OPSWAT Cert 2 -->
-                        <a href="https://learn.opswatacademy.com/certificate/sGJhzR6qcA" target="_blank"
-                            class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">File
-                                        Security Associate</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">OPSWAT • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- OPSWAT Cert 3 -->
-                        <a href="https://learn.opswatacademy.com/certificate/SEBWovItdA" target="_blank"
-                            class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">Legacy
-                                        Systems Security</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">OPSWAT • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- OPSWAT Cert 4 -->
-                        <a href="https://learn.opswatacademy.com/certificate/ev5COlsynA" target="_blank"
-                            class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">
-                                        Network Security</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">OPSWAT • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- OPSWAT Cert 5 -->
-                        <a href="https://learn.opswatacademy.com/certificate/1ZjFxlIxDw" target="_blank"
-                            class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">Secure
-                                        Storage</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">OPSWAT • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- OPSWAT Cert 6 -->
-                        <a href="https://learn.opswatacademy.com/certificate/m1p1XDy_UQ" target="_blank"
-                            class="block group">
-                            <div
-                                class="border border-green-500/30 bg-green-900/10 p-4 rounded-lg flex items-center hover:bg-green-900/30 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mr-4 group-hover:bg-green-500/40">
-                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-bold group-hover:text-green-400 transition-colors">Web
-                                        Traffic Protection</h4>
-                                    <p class="text-xs text-gray-400 font-mono-cyber">OPSWAT • VIEW_CERT</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio / Projects Section -->
-    <section id="portfolio" class="py-20 relative overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/5 to-transparent pointer-events-none">
-        </div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-white tracking-tight">Featured <span
-                    class="text-gradient">Projects</span></h2>
-
-            <!-- Project Card -->
-            <div
-                class="glass-panel p-0 rounded-2xl max-w-5xl mx-auto cyber-card text-left overflow-hidden flex flex-col md:flex-row group">
-                <div class="md:w-1/2 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-cyan-500/20 group-hover:bg-transparent transition-colors z-10">
-                    </div>
-                    <img src="https://placehold.co/800x600/030712/22d3ee?text=Vulnerability+Scanner"
-                        alt="Project Screenshot"
-                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                </div>
-                <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Automated
-                        Vulnerability Scanner</h3>
-                    <div class="flex gap-2 mb-6">
-                        <span
-                            class="text-xs font-mono-cyber text-lime-400 bg-lime-400/10 px-2 py-1 rounded">PYTHON</span>
-                        <span
-                            class="text-xs font-mono-cyber text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">SECURITY</span>
-                    </div>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        A robust <span class="text-gray-200">Dynamic Application Security Testing (DAST)</span> tool
-                        engineered to automatically detect SQL Injection, XSS, and command injection vulnerabilities.
-                        Generates enterprise-grade remediation reports.
-                    </p>
-                    <ul class="text-sm text-gray-500 space-y-2 mb-8 font-mono-cyber">
-                        <li class="flex items-center"><span
-                                class="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></span>Automated Severity Scoring</li>
-                        <li class="flex items-center"><span
-                                class="w-1.5 h-1.5 bg-cyan-500 rounded-full mr-2"></span>Insecure Config Detection</li>
-                    </ul>
-                    <a href="#"
-                        class="inline-flex items-center text-cyan-400 hover:text-white font-bold transition-colors">
-                        View Project <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 relative">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-white tracking-tight">My <span
-                    class="text-gradient">Services</span></h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Service 1 -->
-                <div class="glass-panel p-8 rounded-2xl cyber-card text-left group">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500 group-hover:text-black transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            <path d="m15 15-3 3-3-3"></path>
-                            <path d="M12 18v-6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Penetration Testing</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Simulated cyberattacks to uncover vulnerabilities
-                        in web apps, networks, and mobile endpoints before they can be exploited.</p>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="glass-panel p-8 rounded-2xl cyber-card text-left group">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-lime-500/10 flex items-center justify-center text-lime-400 mb-6 group-hover:bg-lime-500 group-hover:text-black transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">24/7 Monitoring</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Continuous surveillance of digital assets for
-                        suspicious activities, enabling rapid incident detection.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="glass-panel p-8 rounded-2xl cyber-card text-left group">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-cyan-500 group-hover:text-black transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            <path d="M12 8v4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Vulnerability Assessment</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Systematic identification and prioritization of
-                        security weaknesses with actionable reporting.</p>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="glass-panel p-8 rounded-2xl cyber-card text-left group">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-lime-500/10 flex items-center justify-center text-lime-400 mb-6 group-hover:bg-lime-500 group-hover:text-black transition-all duration-300">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Tutoring</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Expert-led training sessions (1:1 & Group) to
-                        empower teams with essential cybersecurity knowledge.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 relative">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-white tracking-tight">Recent <span
-                    class="text-gradient">Insights</span></h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Blog 1 -->
-                <a href="https://medium.com/meetcyber/%EF%B8%8F-the-elk-stack-your-diy-security-powerhouse-for-log-analysis-524eea58ae75"
-                    target="_blank" class="glass-panel p-5 rounded-2xl cyber-card text-left group h-full block">
-                    <div class="rounded-xl overflow-hidden mb-5 h-48 relative">
-                        <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*1xMESpxukffGb3eINLs7-w.png"
-                            alt="Blog Thumb"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    </div>
-                    <p class="text-cyan-400 text-xs font-mono-cyber mb-2">JULY 20, 2025</p>
-                    <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">The ELK
-                        Stack
-                        Security Powerhouse for Log Analysis</h3>
-                    <p class="text-gray-400 text-sm">Navigating the security powerhouse of raw logs into actionable
-                        security intelligence efficiently..</p>
-                </a>
-
-                <!-- Blog 2 -->
-                <a href="https://medium.com/meetcyber/weekly-cyber-threat-brief-staying-ahead-in-a-dynamic-landscape-july-21-27-2025-6f0717d9041f"
-                    target="_blank" class="glass-panel p-5 rounded-2xl cyber-card text-left group h-full block">
-                    <div class="rounded-xl overflow-hidden mb-5 h-48 relative">
-                        <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*6I0dOVdNieRlA778iQd-5w.jpeg"
-                            alt="Blog Thumb"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    </div>
-                    <p class="text-cyan-400 text-xs font-mono-cyber mb-2">JULY 27, 2025</p>
-                    <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">Weekly
-                        Cyber Threat Brief</h3>
-                    <p class="text-gray-400 text-sm">Essential roundup of emerging threats and actionable intelligence
-                        for the week.</p>
-                </a>
-
-                <!-- Blog 3 -->
-                <a href="https://medium.com/meetcyber/mastering-nmap-a-beginners-guide-and-enterprise-use-cases-ae6d6072b0e1"
-                    target="_blank" class="glass-panel p-5 rounded-2xl cyber-card text-left group h-full block">
-                    <div class="rounded-xl overflow-hidden mb-5 h-48 relative">
-                        <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*5YN7Vo2ymVK4UYegWJwNAg.png"
-                            alt="Blog Thumb"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    </div>
-                    <p class="text-cyan-400 text-xs font-mono-cyber mb-2">JULY 15, 2025</p>
-                    <h3 class="text-lg font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">Mastering
-                        Nmap: A Beginner’s Guide</h3>
-                    <p class="text-gray-400 text-sm">Comprehensive guide to Nmap commands and advanced enterprise use
-                        cases.</p>
-                </a>
-            </div>
-
-            <a href="https://medium.com/@akhilbinu" target="_blank" class="btn-cyber px-10 py-3 font-bold">Read All
-                Articles</a>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="relative py-20 overflow-hidden">
-        <div class="absolute inset-0 cyber-bg opacity-5"></div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <div class="glass-panel p-12 rounded-3xl max-w-4xl mx-auto cyber-card border border-cyan-500/30">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">Ready to <span
-                        class="text-gradient">Secure</span> Your Future?</h2>
-                <p class="text-lg md:text-xl mb-10 text-gray-300 max-w-2xl mx-auto">
-                    In a world where threats are constant, proactive security is your best defense. Let's discuss how we
-                    can fortify your digital perimeter.
-                </p>
-                <a href="https://api.whatsapp.com/send?phone=918330875109&text=Hi%20Akhil%20" target="_blank"
-                    class="btn-cyber px-10 py-4 font-bold text-lg inline-block">
-                    Get a Security Consultation
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 relative">
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-white tracking-tight">Get in <span
-                    class="text-gradient">Touch</span></h2>
-
-            <div class="max-w-2xl mx-auto glass-panel p-8 md:p-12 rounded-2xl cyber-card text-left">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-cyan-400 mb-2 font-mono-cyber"> //
-                                NAME</label>
-                            <input type="text" id="name" name="from_name"
-                                class="w-full bg-black/40 border border-gray-700 rounded p-4 text-white focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all placeholder-gray-600"
-                                placeholder="John Doe" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-cyan-400 mb-2 font-mono-cyber"> //
-                                EMAIL_ADDRESS</label>
-                            <input type="email" id="email" name="from_email"
-                                class="w-full bg-black/40 border border-gray-700 rounded p-4 text-white focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all placeholder-gray-600"
-                                placeholder="john@example.com" required>
                         </div>
                     </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-cyan-400 mb-2 font-mono-cyber"> //
-                            MESSAGE_PAYLOAD</label>
-                        <textarea id="message" name="message" rows="5"
-                            class="w-full bg-black/40 border border-gray-700 rounded p-4 text-white focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all placeholder-gray-600"
-                            placeholder="Describe your security needs..." required></textarea>
-                    </div>
-                    <button type="submit" class="w-full btn-cyber py-4 font-bold text-lg mt-4 group">
-                        <span class="group-hover:hidden">Transmit Message</span>
-                        <span class="hidden group-hover:inline-block">Sending...</span>
-                    </button>
-                    <!-- Message display area -->
-                    <div id="form-message" class="mt-4 text-center font-mono-cyber text-sm min-h-[20px]"></div>
-                </form>
 
-                <div
-                    class="mt-10 pt-8 border-t border-gray-700/50 flex flex-col md:flex-row justify-center items-center gap-6 text-sm text-gray-400">
-                    <a href="mailto:akhilbinuofficial@gmail.com"
-                        class="flex items-center hover:text-cyan-400 transition-colors">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        akhilbinuwakeup@gmail.com
-                    </a>
-                    <a href="https://linkedin.com/in/akhilbinu" target="_blank"
-                        class="flex items-center hover:text-cyan-400 transition-colors">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.766 1.75-1.766 1.75.79 1.75 1.766-.783 1.766-1.75 1.766zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                            </path>
-                        </svg>
-                        linkedin.com/in/akhilbinu
-                    </a>
+                    <!-- Experience Timeline -->
+                    <div class="timeline-column">
+                        <h3 class="timeline-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Experience
+                        </h3>
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-marker active"></div>
+                                <span class="time-period">Jan 2025 - Present</span>
+                                <h4 class="timeline-role">Security Researcher & Tutor</h4>
+                                <p class="timeline-inst">Upwork · Freelance</p>
+                                <p class="timeline-desc">Conducting comprehensive vulnerability assessments, application tests, and guiding international students in security disciplines.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <span class="time-period">Apr 2025 - Jun 2025</span>
+                                <h4 class="timeline-role">Digital Forensics Intern</h4>
+                                <p class="timeline-inst">Cyber Secured India</p>
+                                <p class="timeline-desc">Analyzed digital evidence, threat patterns, and generated log reports of security incidents.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <span class="time-period">Jan 2022 - Feb 2025</span>
+                                <h4 class="timeline-role">Founder & CTO</h4>
+                                <p class="timeline-inst">Brotechy</p>
+                                <p class="timeline-desc">Led technical architectures, security standards implementation, and custom software deliveries.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Technical Arsenal Section -->
+        <section id="skills" class="skills-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">CAPABILITIES INDEX</span>
+                    <h2 class="section-title">Technical <span>Arsenal</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="skills-wrapper">
+                    <div class="skills-intro-card">
+                        <h3 class="skills-intro-title">Toolsets & Methodologies</h3>
+                        <p class="skills-intro-desc">
+                            Leveraging industry-standard tooling, scripts, and frameworks to detect anomalies and perform full-spectrum application testing.
+                        </p>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip">Penetration Testing</span>
+                            <span class="skill-chip sec-chip">Network Security</span>
+                            <span class="skill-chip">Digital Forensics</span>
+                            <span class="skill-chip sec-chip">Vulnerability Assessment</span>
+                            <span class="skill-chip">Nmap</span>
+                            <span class="skill-chip sec-chip">Burp Suite</span>
+                            <span class="skill-chip">Wireshark</span>
+                            <span class="skill-chip sec-chip">Metasploit</span>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card skills-progress-list">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+
+                        <!-- Skill item 1 -->
+                        <div class="skill-progress-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Penetration Testing (Web & Network)</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-level="90"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill item 2 -->
+                        <div class="skill-progress-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Vulnerability Assessment (VAPT)</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-level="88"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill item 3 -->
+                        <div class="skill-progress-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Security Information & Event Management (SIEM)</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-level="80"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill item 4 -->
+                        <div class="skill-progress-item">
+                            <div class="skill-label-row">
+                                <span class="skill-name">Digital Forensics & Logs Analysis</span>
+                                <span class="skill-percentage">82%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-level="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="cert-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">DECRYPTED KEYS</span>
+                    <h2 class="section-title">Certifications <span>Unlocked</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- Filter control tabs -->
+                <div class="cert-filter-bar">
+                    <button class="filter-btn active" data-filter="all">All Certs</button>
+                    <button class="filter-btn" data-filter="thm">TryHackMe</button>
+                    <button class="filter-btn" data-filter="opswat">OPSWAT</button>
+                </div>
+
+                <!-- Certification cards grid -->
+                <div class="cert-grid">
+                    <!-- Cert 1 -->
+                    <div class="cert-card-item thm-cert">
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-PS2BVMJ54L.pdf" target="_blank" class="cyber-card cert-card">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Security Engineer</h4>
+                                <span class="cert-issuer">TryHackMe</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="cert-card-item thm-cert">
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-JANZIS6T2E.pdf" target="_blank" class="cyber-card cert-card">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">SOC Level 1</h4>
+                                <span class="cert-issuer">TryHackMe</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="cert-card-item thm-cert">
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-BAUH8J0NU4.pdf" target="_blank" class="cyber-card cert-card">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Advent of Cyber 2025</h4>
+                                <span class="cert-issuer">TryHackMe</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 4 -->
+                    <div class="cert-card-item thm-cert">
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-FXINOTLTVJ.pdf" target="_blank" class="cyber-card cert-card">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Pre Security</h4>
+                                <span class="cert-issuer">TryHackMe</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 5 -->
+                    <div class="cert-card-item opswat-cert">
+                        <a href="https://learn.opswatacademy.com/certificate/EWT1ZgyZVw" target="_blank" class="cyber-card cert-card opswat-cert">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Email Security Associate</h4>
+                                <span class="cert-issuer">OPSWAT</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 6 -->
+                    <div class="cert-card-item opswat-cert">
+                        <a href="https://learn.opswatacademy.com/certificate/sGJhzR6qcA" target="_blank" class="cyber-card cert-card opswat-cert">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">File Security Associate</h4>
+                                <span class="cert-issuer">OPSWAT</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 7 -->
+                    <div class="cert-card-item opswat-cert">
+                        <a href="https://learn.opswatacademy.com/certificate/SEBWovItdA" target="_blank" class="cyber-card cert-card opswat-cert">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Legacy Systems Security</h4>
+                                <span class="cert-issuer">OPSWAT</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 8 -->
+                    <div class="cert-card-item opswat-cert">
+                        <a href="https://learn.opswatacademy.com/certificate/ev5COlsynA" target="_blank" class="cyber-card cert-card opswat-cert">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Network Security</h4>
+                                <span class="cert-issuer">OPSWAT</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 9 -->
+                    <div class="cert-card-item opswat-cert">
+                        <a href="https://learn.opswatacademy.com/certificate/1ZjFxlIxDw" target="_blank" class="cyber-card cert-card opswat-cert">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Secure Storage</h4>
+                                <span class="cert-issuer">OPSWAT</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Cert 10 -->
+                    <div class="cert-card-item opswat-cert">
+                        <a href="https://learn.opswatacademy.com/certificate/m1p1XDy_UQ" target="_blank" class="cyber-card cert-card opswat-cert">
+                            <span class="card-corner-decor decor-tl"></span>
+                            <span class="card-corner-decor decor-tr"></span>
+                            <span class="card-corner-decor decor-bl"></span>
+                            <span class="card-corner-decor decor-br"></span>
+                            <div class="cert-icon-wrapper">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4 class="cert-title">Web Traffic Protection</h4>
+                                <span class="cert-issuer">OPSWAT</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">SECURITY REPOSITORIES</span>
+                    <h2 class="section-title">Featured <span>Projects</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="project-display">
+                    <!-- Project Case Study -->
+                    <div class="cyber-card project-showcase">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+
+                        <div class="project-media">
+                            <img src="https://placehold.co/800x600/030712/22d3ee?text=Vulnerability+Scanner" alt="Automated Vulnerability Scanner Console Mockup" class="project-img" width="450" height="330">
+                            <div class="project-meta">
+                                <div class="project-tags">
+                                    <span class="project-tag tag-cyan">PYTHON</span>
+                                    <span class="project-tag tag-green">SECURITY DAST</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-details">
+                            <h3 class="project-heading">Automated Vulnerability Scanner</h3>
+                            <p class="project-description">
+                                A robust <span>Dynamic Application Security Testing (DAST)</span> tool engineered to automatically map injection points. Scripted in Python, this tool uncovers SQL Injection, XSS, and command injection issues instantly.
+                            </p>
+                            <ul class="project-bullet-list">
+                                <li class="project-bullet-item"><span class="bullet-icon"></span> Automated Severity Scoring & Vector mapping</li>
+                                <li class="project-bullet-item"><span class="bullet-icon"></span> Insecure Configuration & Server Header leak diagnostics</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    View Repository 
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Case Study 2: Akhil Orbit Player -->
+                    <div class="cyber-card project-showcase">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+
+                        <div class="project-media">
+                            <img src="images/akhil_orbit_player.png" alt="Akhil Orbit Player Interface Mockup" class="project-img" width="450" height="330">
+                            <div class="project-meta">
+                                <div class="project-tags">
+                                    <span class="project-tag tag-cyan">VANILLA JS</span>
+                                    <span class="project-tag tag-green">OFFLINE PLAYER</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-details">
+                            <h3 class="project-heading">Akhil Orbit Player</h3>
+                            <p class="project-description">
+                                An offline-first, private educational player that allows users to <span>load, play, and organize course contents</span> directly from local folders. Fast, private, and runs fully client-side.
+                            </p>
+                            <ul class="project-bullet-list">
+                                <li class="project-bullet-item"><span class="bullet-icon"></span> Drag and drop folder loading (Videos, PDFs, Markdown notes, audio, code)</li>
+                                <li class="project-bullet-item"><span class="bullet-icon"></span> 100% private, client-side offline execution</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://akhil-orbit-player.vercel.app/" target="_blank" class="project-link">
+                                    View Project 
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">OPERATIONAL ROLES</span>
+                    <h2 class="section-title">My <span>Services</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="cyber-card service-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0110 0v4"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Penetration Testing</h3>
+                        <p class="service-desc">Simulated cyberattacks to uncover vulnerabilities in web apps, networks, and mobile endpoints before threat actors can exploit them.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="cyber-card service-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">24/7 Monitoring</h3>
+                        <p class="service-desc">Continuous surveillance of digital assets and event logs for suspicious activities, enabling rapid threat mitigation.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="cyber-card service-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9.663 17h4.673M12 3v1m6.364 .364l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Vulnerability Assessment</h3>
+                        <p class="service-desc">Systematic identification, classification, and prioritization of security weaknesses with detailed remediation roadmaps.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="cyber-card service-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Tutoring</h3>
+                        <p class="service-desc">Expert-led interactive training sessions (1:1 & Group) to empower aspiring professionals with security skills.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights / Blog Section -->
+        <section id="blog" class="blog-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">SECURITY DISPATCHES</span>
+                    <h2 class="section-title">Recent <span>Insights</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="blog-grid">
+                    <!-- Blog Card 1 -->
+                    <div class="cyber-card blog-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <a href="https://medium.com/meetcyber/%EF%B8%8F-the-elk-stack-your-diy-security-powerhouse-for-log-analysis-524eea58ae75" target="_blank" style="display: block; height: 100%;">
+                            <div class="blog-img-wrapper">
+                                <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*1xMESpxukffGb3eINLs7-w.png" alt="ELK Stack Log Analysis thumbnail" class="blog-img" width="340" height="190">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-date">JULY 20, 2025</span>
+                                <h3 class="blog-title">The ELK Stack: Your DIY Security Powerhouse for Log Analysis</h3>
+                                <p class="blog-desc">Navigating the security powerhouse of converting raw logging structures into actionable threat monitoring diagnostics.</p>
+                                <span class="blog-readmore">
+                                    Read Article 
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Blog Card 2 -->
+                    <div class="cyber-card blog-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <a href="https://medium.com/meetcyber/weekly-cyber-threat-brief-staying-ahead-in-a-dynamic-landscape-july-21-27-2025-6f0717d9041f" target="_blank" style="display: block; height: 100%;">
+                            <div class="blog-img-wrapper">
+                                <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*6I0dOVdNieRlA778iQd-5w.jpeg" alt="Weekly Cyber Threat Brief thumbnail" class="blog-img" width="340" height="190">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-date">JULY 27, 2025</span>
+                                <h3 class="blog-title">Weekly Cyber Threat Brief: Staying Ahead in a Dynamic Landscape</h3>
+                                <p class="blog-desc">Essential roundup of emerging vectors, active vulnerability exposures, and threat briefs from that week.</p>
+                                <span class="blog-readmore">
+                                    Read Article 
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Blog Card 3 -->
+                    <div class="cyber-card blog-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+                        <a href="https://medium.com/meetcyber/mastering-nmap-a-beginners-guide-and-enterprise-use-cases-ae6d6072b0e1" target="_blank" style="display: block; height: 100%;">
+                            <div class="blog-img-wrapper">
+                                <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*5YN7Vo2ymVK4UYegWJwNAg.png" alt="Mastering Nmap guide thumbnail" class="blog-img" width="340" height="190">
+                            </div>
+                            <div class="blog-content">
+                                <span class="blog-date">JULY 15, 2025</span>
+                                <h3 class="blog-title">Mastering Nmap: A Beginner’s Guide & Enterprise Cases</h3>
+                                <p class="blog-desc">Comprehensive breakdown of fundamental Nmap syntaxes, port state mechanics, and advanced host scanning use cases.</p>
+                                <span class="blog-readmore">
+                                    Read Article 
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="blog-cta-wrapper">
+                    <a href="https://medium.com/@akhilbinu" target="_blank" class="btn-cyber">Read All Articles</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Container Section -->
+        <section class="cta-sec reveal">
+            <div class="container">
+                <div class="cyber-card cta-card">
+                    <span class="card-corner-decor decor-tl"></span>
+                    <span class="card-corner-decor decor-tr"></span>
+                    <span class="card-corner-decor decor-bl"></span>
+                    <span class="card-corner-decor decor-br"></span>
+                    
+                    <h2 class="cta-title">Ready to <span>Secure</span> Your Perimeter?</h2>
+                    <p class="cta-desc">In a world where threats are constant, proactive security is your best defense. Let's discuss how we can fortify your digital infrastructure.</p>
+                    <a href="https://api.whatsapp.com/send?phone=918330875109&text=Hi%20Akhil%20" target="_blank" class="btn-cyber">Get a Security Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-sec reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">SECURE TRANSMISSION</span>
+                    <h2 class="section-title">Get in <span>Touch</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="cyber-card contact-form-card">
+                        <span class="card-corner-decor decor-tl"></span>
+                        <span class="card-corner-decor decor-tr"></span>
+                        <span class="card-corner-decor decor-bl"></span>
+                        <span class="card-corner-decor decor-br"></span>
+
+                        <form id="contact-form">
+                            <div class="contact-form-grid">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">// Name</label>
+                                    <input type="text" id="name" name="from_name" class="form-input" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">// Email</label>
+                                    <input type="email" id="email" name="from_email" class="form-input" placeholder="john@example.com" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="message" class="form-label">// Message Payload</label>
+                                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Describe your security needs..." required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="contact-btn-wrapper">
+                                <button type="submit" class="btn-cyber btn-cyber-solid">Transmit Message</button>
+                                <!-- Form Status Console Logger -->
+                                <div id="form-status-console" class="form-status-console"></div>
+                            </div>
+                        </form>
+
+                        <div class="contact-channels">
+                            <a href="mailto:akhilbinuwakeup@gmail.com" class="contact-channel-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                akhilbinuwakeup@gmail.com
+                            </a>
+                            <a href="https://linkedin.com/in/akhilbinu" target="_blank" class="contact-channel-item">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.766 1.75-1.766 1.75.79 1.75 1.766-.783 1.766-1.75 1.766zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                linkedin.com/in/akhilbinu
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-8 border-t border-gray-800 relative z-10">
-        <div class="container mx-auto px-4 text-center text-sm text-gray-500 font-mono-cyber">
-            <p>&copy; 2025 Akhil Binu. <span class="text-cyan-900">System Secure.</span> All rights reserved.</p>
-            <p class="mt-2 text-xs opacity-50">Fortifying Digital Defenses with Precision & Expertise</p>
+    <footer class="cyber-footer">
+        <div class="container footer-content">
+            <div class="footer-copyright">
+                &copy; 2026 Akhil Binu. <span>SYSTEM SECURE.</span> All rights reserved.
+            </div>
+            <div class="footer-tagline">
+                Fortifying Digital Defenses with Precision &amp; Expertise
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href').length > 1 && this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-                // Close mobile menu
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // Intersection Observer for Animations (Enhanced)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-fade-in-down, .animate-fade-in-up').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-
-        // EmailJS
-        const contactForm = document.getElementById('contact-form');
-        const formMessage = document.getElementById('form-message');
-
-        contactForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            formMessage.textContent = '> Initializing transmission...';
-            formMessage.className = 'mt-4 text-center font-mono-cyber text-cyan-400 blink';
-
-            emailjs.sendForm('service_hil8nfb', 'template_u3ht3v2', this)
-                .then(function () {
-                    formMessage.textContent = '> Message transmitted successfully. Awaiting acknowledgment.';
-                    formMessage.className = 'mt-4 text-center font-mono-cyber text-lime-400';
-                    contactForm.reset();
-                }, function (error) {
-                    console.error('FAILED...', error);
-                    formMessage.textContent = '> Transmission failed. Connection error.';
-                    formMessage.className = 'mt-4 text-center font-mono-cyber text-red-500';
-                });
-        });
-
-        // Matrix Rain Animation
-        const canvas = document.getElementById('matrix-canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0F0'; // Green text
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 33);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
+    <!-- Scripts link -->
+    <script src="script.js"></script>
 </body>
-
 </html>
