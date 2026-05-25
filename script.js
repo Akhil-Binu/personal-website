@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '   Features:    Dynamic security scanning (SQLi, XSS, Cmd Injection)',
             '                Generates severity analysis reports',
             '',
-            '2. Akhil Orbit Player (Vanilla JS)',
+            '2. Akhil Orbit Player (TypeScript)',
             '   Features:    Offline-first client-side course folder viewer/player',
             '                Drag-and-drop local folder parsing (Videos, PDFs, Markdown)',
             '   Link:        https://akhil-orbit-player.vercel.app/'
