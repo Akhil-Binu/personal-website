@@ -221,7 +221,13 @@ document.addEventListener('DOMContentLoaded', () => {
             '   Features:    Offline-first client-side course folder viewer/player',
             '                Drag-and-drop local folder parsing (Videos, PDFs, Markdown)',
             '   Source:      https://github.com/Akhil-Binu/Akhil-Orbit-Player',
-            '   Link:        https://akhil-orbit-player.vercel.app/'
+            '   Link:        https://akhil-orbit-player.vercel.app/',
+            '',
+            '3. Akhil Fortress (React & TypeScript)',
+            '   Features:    Circular entropy progress gauge, password security checklist,',
+            '                common dictionary checks with leetspeak normalization, offline generator',
+            '   Source:      https://github.com/Akhil-Binu/Password-Strength-Checker',
+            '   Link:        https://akhil-password-strength-checker.vercel.app/'
         ],
         contact: [
             '// COMMUNICATION LINK LOADED',
