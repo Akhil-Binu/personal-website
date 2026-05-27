@@ -214,6 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
             '1. Automated Vulnerability Scanner (Python)',
             '   Features:    Dynamic security scanning (SQLi, XSS, Cmd Injection)',
             '                Generates severity analysis reports',
+            '   Source:      https://github.com/Akhil-Binu/Akhil-Website-Scanner',
+            '   Link:        https://akhil-website-scanner.vercel.app/',
             '',
             '2. Akhil Orbit Player (TypeScript)',
             '   Features:    Offline-first client-side course folder viewer/player',
