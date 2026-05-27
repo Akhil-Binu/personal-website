@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '2. Akhil Orbit Player (TypeScript)',
             '   Features:    Offline-first client-side course folder viewer/player',
             '                Drag-and-drop local folder parsing (Videos, PDFs, Markdown)',
+            '   Source:      https://github.com/Akhil-Binu/Akhil-Orbit-Player',
             '   Link:        https://akhil-orbit-player.vercel.app/'
         ],
         contact: [
