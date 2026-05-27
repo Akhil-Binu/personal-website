@@ -211,9 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         projects: [
             '// FEATURED REPOSITORIES',
-            '1. Automated Vulnerability Scanner (Python)',
-            '   Features:    Dynamic security scanning (SQLi, XSS, Cmd Injection)',
-            '                Generates severity analysis reports',
+            '1. Akhil WebGuard Suite (Node.js & Gemini AI)',
+            '   Features:    Authenticated scanning, SAST Code Auditor, dynamic DAST exploits,',
+            '                automated Exploit PoC generator, OWASP/PCI compliance mappings',
             '   Source:      https://github.com/Akhil-Binu/Akhil-Website-Scanner',
             '   Link:        https://akhil-website-scanner.vercel.app/',
             '',
