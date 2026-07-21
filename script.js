@@ -564,11 +564,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 threatFeedIndex = (threatFeedIndex + 1) % threatFeedData.length;
-                
-                // Refresh list if we run through the feed
-                if (threatFeedIndex === 0) {
-                    fetchLiveThreats();
-                }
             }
         }
 
