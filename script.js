@@ -160,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             certCards.forEach(card => {
                 if (filterValue === 'all') {
-                    card.style.display = 'flex';
+                    card.style.display = 'block';
                 } else if (card.classList.contains(`${filterValue}-cert`)) {
-                    card.style.display = 'flex';
+                    card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
@@ -271,7 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Output the prompt log of command typed
         const promptDiv = document.createElement('div');
         promptDiv.className = 'term-line';
-        promptDiv.innerHTML = `<span class="term-prompt">guest@akhilbinu:~$</span> <span class="term-cmd">${cmdRaw}</span>`;
+        
+        const promptSpan = document.createElement('span');
+        promptSpan.className = 'term-prompt';
+        promptSpan.textContent = 'guest@akhilbinu:~$ ';
+        
+        const cmdSpan = document.createElement('span');
+        cmdSpan.className = 'term-cmd';
+        cmdSpan.textContent = cmdRaw;
+        
+        promptDiv.appendChild(promptSpan);
+        promptDiv.appendChild(cmdSpan);
         terminalBody.insertBefore(promptDiv, terminalBody.lastElementChild);
 
         if (cmd === '') {
@@ -482,5 +492,127 @@ document.addEventListener('DOMContentLoaded', () => {
                 drops[x] = Math.random() * -100;
             }
         });
+        // ----------------------------------------------------------------------
+        // 5.6 Threat Map HUD Logger
+        // ----------------------------------------------------------------------
+        const threatLogContainer = document.getElementById('threat-log-container');
+        const hudStatus = document.getElementById('hud-status');
+        
+        // Define live state flag
+        window.isLiveThreatFeedActive = false;
+        
+        let threatFeedData = [];
+        let threatFeedIndex = 0;
+        
+        async function fetchLiveThreats() {
+            try {
+                // Fetch recent IP backscatter scans from SANS Internet Storm Center API
+                const response = await fetch('https://isc.sans.edu/api/backscatter?json');
+                if (!response.ok) throw new Error('HTTP error ' + response.status);
+                
+                const data = await response.json();
+                if (Array.isArray(data) && data.length > 0) {
+                    threatFeedData = data;
+                    threatFeedIndex = 0;
+                    window.isLiveThreatFeedActive = true;
+                    
+                    if (hudStatus) {
+                        hudStatus.textContent = 'LIVE INTEL';
+                        hudStatus.className = 'hud-status-badge status-live';
+                    }
+                }
+            } catch (err) {
+                console.warn('Threat Map Live Feed offline. Activating simulation mode.', err);
+                window.isLiveThreatFeedActive = false;
+                if (hudStatus) {
+                    hudStatus.textContent = 'SIMULATION';
+                    hudStatus.className = 'hud-status-badge status-sim';
+                }
+            }
+        }
+        
+        function getKasperskyThreatClass(port) {
+            const p = parseInt(port);
+            if (p === 25 || p === 110 || p === 143 || p === 993 || p === 995 || p === 465 || p === 587) {
+                return "MAV"; // Mail Anti-Virus
+            }
+            if (p === 80 || p === 443 || p === 8080 || p === 8000 || p === 8443) {
+                return "WAV"; // Web Anti-Virus
+            }
+            if (p === 22 || p === 23 || p === 445 || p === 139 || p === 3389) {
+                return "IDS"; // Intrusion Detection System
+            }
+            if (p === 3306 || p === 5432 || p === 1521 || p === 1433 || p === 27017) {
+                return "OAS"; // On-Access Scan (Database targets)
+            }
+            if (p === 21 || p === 53 || p === 161 || p === 162 || p === 69) {
+                return "VUL"; // Vulnerability scan on service protocols
+            }
+            return "ODS"; // On-Demand Scan (Others)
+        }
+
+        function triggerNextAttack() {
+            if (window.isLiveThreatFeedActive && threatFeedData.length > 0) {
+                const threat = threatFeedData[threatFeedIndex];
+                
+                // Map port to specific Kaspersky threat category
+                const threatClass = getKasperskyThreatClass(threat.port);
+                
+                // Trigger 3D globe animation
+                if (typeof window.triggerThreatMapAttack === 'function') {
+                    window.triggerThreatMapAttack(threat.ip, threat.port, threatClass);
+                }
+                
+                threatFeedIndex = (threatFeedIndex + 1) % threatFeedData.length;
+                
+                // Refresh list if we run through the feed
+                if (threatFeedIndex === 0) {
+                    fetchLiveThreats();
+                }
+            }
+        }
+
+        // Initialize Live Feed
+        fetchLiveThreats();
+        
+        // Trigger live attacks every 110ms (approx. 9 attacks per second, matching 180 attacks/20s)
+        setInterval(triggerNextAttack, 110);
+        
+        // Refresh API feed every 5 minutes
+        setInterval(fetchLiveThreats, 300000);
+
+        if (threatLogContainer) {
+            window.addEventListener('cyber-attack-log', (e) => {
+                const data = e.detail;
+                const entry = document.createElement('div');
+                entry.className = 'hud-log-entry';
+                
+                // Style using exact threat class colors
+                if (data.colorHex) {
+                    entry.style.color = data.colorHex;
+                    entry.style.textShadow = `0 0 6px ${data.colorHex}50`;
+                }
+                
+                // Format timestamp
+                const now = new Date();
+                const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+                
+                let logText = `[${timeStr}] [${data.threatClass || 'SEC'}] ${data.type}: ${data.source} -> ${data.target}`;
+                if (data.port) {
+                    logText += ` (Port ${data.port})`;
+                }
+                
+                entry.textContent = logText;
+                threatLogContainer.appendChild(entry);
+                
+                // Keep max 15 entries in DOM
+                while (threatLogContainer.children.length > 15) {
+                    threatLogContainer.removeChild(threatLogContainer.firstChild);
+                }
+                
+                // Auto scroll to bottom
+                threatLogContainer.scrollTop = threatLogContainer.scrollHeight;
+            });
+        }
     }
 });
