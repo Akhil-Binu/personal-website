@@ -1,42 +1,60 @@
 # Akhil Binu - Personal Cybersecurity Portfolio 🛡️
 
-A high-fidelity, interactive, and beautifully animated single-page portfolio website showcasing Akhil Binu's expertise in security research, penetration testing, VAPT, and digital forensics. Built from scratch with modular vanilla technologies, custom keyframe animation styling, and responsive design systems.
+A high-fidelity, interactive, and beautifully animated single-page portfolio website showcasing Akhil Binu's expertise in security research, penetration testing, VAPT, and digital forensics. Built from scratch with modular vanilla technologies, custom keyframe animation styling, Three.js WebGL scenes, and responsive design systems — all wrapped in a classic green hacker/terminal aesthetic.
 
 ---
 
 ## 🌟 Immersive Cyberpunk Aesthetics & Features
 
-### 1. 🕵️ Interactive Matrix Rain Background
-- High-performance html5 canvas engine drawing custom green glyph columns.
-- **Mouse Proximity Aura**: Canvas tracks cursor coordinates dynamically. Glyphs within `120px` of the mouse turn from green to glowing cyan and fall faster.
+### 1. 🌐 3D Cyber Threat Map Globe (Three.js)
+- Full-page WebGL background rendering a dot-matrix world globe built from a self-contained continent mask (no external map data).
+- **Live threat simulation**: animated laser-comet attack trails arc between source/target points, color-coded by threat category (OAS, ODS, WAV, MAV, IDS, VUL), with impact ripples on arrival.
+- **Live intel feed**: pulls real backscatter scan data from the SANS Internet Storm Center API and visualizes it on the globe in real time, falling back to a simulation mode if the feed is unavailable.
+- Camera position, rotation, and depth respond to scroll position for a parallax descent effect through the page.
 
-### 2. 💻 Command-Line Console Simulator
+### 2. 💎 Hero 3D Data-Crystal (Three.js)
+- A rotating wireframe icosahedron shell with an inner counter-rotating core and an orbiting particle ring, layered behind the hero profile photo.
+- Subtly tilts toward the cursor for a mouse-parallax effect. Automatically disabled on mobile viewports for performance.
+
+### 3. 🕵️ Interactive Matrix Rain Background
+- High-performance HTML5 canvas engine drawing custom glyph columns in the site's green palette.
+- **Mouse Proximity Aura**: canvas tracks cursor coordinates dynamically — glyphs within `120px` of the mouse brighten to neon green and fall faster.
+
+### 4. 💻 Command-Line Console Simulator
 - Fully functional HUD command prompt mockup. Type standard operations directly or click quick shortcuts below the screen:
   - `help` — Lists operational routines.
   - `about` — Resolves Akhil Binu's bio payload.
   - `skills` — Lists specialized security tools & methodologies.
-  - `certs` — FetchesTryHackMe and OPSWAT credentials.
+  - `certs` — Fetches TryHackMe and OPSWAT credentials.
   - `projects` — Details featured repositories and live urls.
   - `contact` — Shows secure communication gateways.
   - `clear` — Clears console log buffer.
   - `banner` — Renders the cybersecurity ascii logo banner.
 - **Typing Simulation**: Clicking buttons triggers a typewriter keystroke animation directly inside the input line before running commands.
 
-### 3. 🧪 Glassmorphic Hologram Cards
-- Cards react to mouse positions using CSS custom variables (`--mouse-x`, `--mouse-y`) to generate a Vercel-like hover spotlight glow.
-- **3D Tilt effect**: Hovering cards on desktop devices calculates cursor distance from the center to skew cards dynamically on the X and Y axes.
+### 5. 🧪 Glassmorphic Hologram Cards with 3D Interactions
+- Cards react to mouse position using CSS custom variables (`--mouse-x`, `--mouse-y`) to generate a Vercel-like hover spotlight glow.
+- **3D Tilt effect**: hovering cards on desktop devices calculates cursor distance from the center to skew cards dynamically on the X and Y axes.
+- **3D Flip Certification Cards**: every certification card flips a full 180° on hover to reveal a "Credential Verified" back face.
+- **3D Cube Service Icons**: service icons rotate as true 3D cubes on hover via a CSS pseudo-element back face.
+- **Portfolio Depth-Parallax**: project showcase images pop forward while the copy drifts the opposite direction on hover, layered on top of the tilt effect.
 - Neon edge indicators (`.card-corner-decor`) light up dynamically on hover.
 
-### 4. 🛜 Real-Time Status logs Form
+### 6. 🎬 3D Perspective Section Transitions
+- Sections tilt in from a 3D perspective (`rotateX` + `translateY`) as they scroll into view, with a `prefers-reduced-motion` fallback to a flat fade-up.
+
+### 7. 🛜 Real-Time Status Logs Form
 - The contact form intercepts standard submissions to feed step-by-step logs into a form console display panel (`Resolving gateway...`, `Transmitting payload...`, `Packet acknowledged. 200 OK`) before sending through EmailJS.
 
 ---
 
 ## 📂 Project Structure & Code Map
 
-* **[index.html](file:///d:/Code/personal-website/index.html)** — Main structure and copy. Includes optimized SEO markup, heading hierarchy, target blank anchors, and viewport settings.
-* **[style.css](file:///d:/Code/personal-website/style.css)** — custom CSS Variable tokens, HUD navigation layout, alternating project column states, top-aligned checklist bullet styling, and keyframe animations.
-* **[script.js](file:///d:/Code/personal-website/script.js)** — mobile toggles, viewport scroll-reveals, skill fill animations, interactive canvas loops, card 3D tilt coordinates, terminal logic, and EmailJS connection log routines.
+* **[index.html](index.html)** — Main structure and copy. Includes optimized SEO markup, heading hierarchy, target blank anchors, and viewport settings.
+* **[style.css](style.css)** — custom CSS variable design tokens (green hacker palette), HUD navigation layout, 3D flip/cube/tilt mechanics, alternating project column states, and keyframe animations.
+* **[script.js](script.js)** — mobile toggles, viewport scroll-reveals, skill fill animations, interactive matrix canvas loop, card 3D tilt/parallax coordinates, terminal logic, live threat feed HUD, and EmailJS connection log routines.
+* **[webgl-bg.js](webgl-bg.js)** — Three.js 3D cyber threat map globe: dot-matrix globe generation, live attack comet trails, impact ripples, and scroll-driven camera movement.
+* **[hero-3d.js](hero-3d.js)** — Three.js hero section data-crystal: wireframe icosahedron shell/core, orbiting particles, and mouse-parallax rotation.
 * **images/** — Local visual assets directory:
   * `Akhil_ai_formal.png` — Hero section profile avatar.
   * `website-scanner.png` — Akhil WebGuard dashboard mockup.
@@ -47,10 +65,12 @@ A high-fidelity, interactive, and beautifully animated single-page portfolio web
 
 ## 🛠️ Technology Stack & Integrations
 
-1. **Frontend Core**: Semantic HTML5 & Modern Vanilla CSS (Flexbox & Grid).
+1. **Frontend Core**: Semantic HTML5 & Modern Vanilla CSS (Flexbox & Grid, 3D transforms).
 2. **Dynamic Scripting**: Asynchronous Vanilla JavaScript.
-3. **Mail Gateway**: EmailJS SDK Integration.
-4. **Futuristic Fonts**: Google Fonts (`Outfit` for readable text, `Space Grotesk` for headers, `Fira Code` for terminal mono listings).
+3. **3D Rendering**: Three.js (r128) — cyber threat globe and hero data-crystal.
+4. **Live Threat Data**: SANS Internet Storm Center backscatter API.
+5. **Mail Gateway**: EmailJS SDK Integration.
+6. **Futuristic Fonts**: Google Fonts (`Outfit` for readable text, `Space Grotesk` for headers, `Fira Code` for terminal mono listings).
 
 ---
 
@@ -59,15 +79,15 @@ A high-fidelity, interactive, and beautifully animated single-page portfolio web
 ### Local Run
 The project is built fully client-side and does not require complex backend builders.
 1. Clone or download the directory.
-2. Open **[index.html](file:///d:/Code/personal-website/index.html)** directly in any modern web browser, or launch it with a lightweight server like VS Code's *Live Server* extensions.
+2. Open **[index.html](index.html)** directly in any modern web browser, or launch it with a lightweight server like VS Code's *Live Server* extension.
 
 ### Customizing Contact Gateway
 To link the email form to your own credentials:
-1. Initialize your key in the head section of [index.html](file:///d:/Code/personal-website/index.html):
+1. Initialize your key in the head section of [index.html](index.html):
    ```javascript
    emailjs.init("YOUR_PUBLIC_KEY");
    ```
-2. Update the service and template IDs inside [script.js](file:///d:/Code/personal-website/script.js) (around line 350):
+2. Update the service and template IDs inside [script.js](script.js) (around line 380):
    ```javascript
    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', contactForm)
    ```

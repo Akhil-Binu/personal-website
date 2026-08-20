@@ -19,9 +19,9 @@
     // Kaspersky Threat Registry: Colors, Titles, and Severities
     const kasperskyThreats = {
         OAS: { name: "OAS (On-Access Scan)", color: 0xff3b30, severity: "ALERT", hex: "#ff3b30" }, // Red
-        ODS: { name: "ODS (On-Demand Scan)", color: 0x00f2fe, severity: "INFO", hex: "#00f2fe" },  // Cyan
-        WAV: { name: "WAV (Web Anti-Virus)", color: 0x39ff14, severity: "BLOCKED", hex: "#39ff14" },// Green
-        MAV: { name: "MAV (Mail Anti-Virus)", color: 0xff00ff, severity: "WARN", hex: "#ff00ff" }, // Magenta
+        ODS: { name: "ODS (On-Demand Scan)", color: 0xff2b6b, severity: "INFO", hex: "#ff2b6b" },  // Crimson-pink
+        WAV: { name: "WAV (Web Anti-Virus)", color: 0xff8800, severity: "BLOCKED", hex: "#ff8800" },// Orange
+        MAV: { name: "MAV (Mail Anti-Virus)", color: 0xff00aa, severity: "WARN", hex: "#ff00aa" }, // Magenta
         IDS: { name: "IDS (Intrusion Detection)", color: 0xffb000, severity: "ALERT", hex: "#ffb000" }, // Amber
         VUL: { name: "VUL (Vulnerability Scan)", color: 0xffff00, severity: "WARN", hex: "#ffff00" }   // Yellow
     };
@@ -144,7 +144,7 @@
     const globeMaterial = new THREE.PointsMaterial({
         size: isMobile ? 1.0 : 1.35,
         map: glowTexture,
-        color: 0x00f2fe, // Cyan globe dots
+        color: 0x39ff14, // Neon green globe dots
         transparent: true,
         opacity: 0.95,
         blending: THREE.AdditiveBlending,
@@ -158,7 +158,7 @@
     const sphereWire = new THREE.Mesh(
         new THREE.SphereGeometry(globeRadius - 0.2, 20, 20),
         new THREE.MeshBasicMaterial({
-            color: 0x00f2fe,
+            color: 0x39ff14,
             wireframe: true,
             transparent: true,
             opacity: 0.04
@@ -354,7 +354,7 @@
     // ----------------------------------------------------------------------
     // 5. Ambient Cyber Grid & Binary Stream
     // ----------------------------------------------------------------------
-    const gridHelper = new THREE.GridHelper(350, 40, 0x00f2fe, 0x070c1d);
+    const gridHelper = new THREE.GridHelper(350, 40, 0x39ff14, 0x070c1d);
     gridHelper.position.y = -35;
     gridHelper.material.opacity = 0.22;
     gridHelper.material.transparent = true;
@@ -378,7 +378,7 @@
     const binaryMaterial = new THREE.PointsMaterial({
         size: isMobile ? 1.0 : 1.4,
         map: glowTexture,
-        color: 0x39ff14, // Green falling bits
+        color: 0x00b34d, // Deep green falling bits
         transparent: true,
         opacity: 0.45,
         blending: THREE.AdditiveBlending,

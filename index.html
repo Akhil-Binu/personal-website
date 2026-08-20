@@ -133,6 +133,7 @@
                 </div>
 
                 <div class="hero-visual">
+                    <canvas id="hero-3d-canvas" class="hero-3d-canvas"></canvas>
                     <div class="holo-frame">
                         <div class="holo-ring"></div>
                         <div class="holo-ring-inner"></div>
@@ -378,194 +379,364 @@
                     <button class="filter-btn" data-filter="opswat">OPSWAT</button>
                 </div>
 
-                <!-- Certification cards grid -->
+                <!-- Certification cards grid (3D flip cards) -->
                 <div class="cert-grid">
                     <!-- Cert 1 -->
                     <div class="cert-card-item thm-cert">
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-PS2BVMJ54L.pdf" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Security Engineer</h4>
-                                <span class="cert-issuer">TryHackMe</span>
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-PS2BVMJ54L.pdf" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Security Engineer</h4>
+                                        <span class="cert-issuer">TryHackMe</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 2 -->
                     <div class="cert-card-item thm-cert">
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-JANZIS6T2E.pdf" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">SOC Level 1</h4>
-                                <span class="cert-issuer">TryHackMe</span>
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-JANZIS6T2E.pdf" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">SOC Level 1</h4>
+                                        <span class="cert-issuer">TryHackMe</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 3 -->
                     <div class="cert-card-item thm-cert">
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-BAUH8J0NU4.pdf" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Advent of Cyber 2025</h4>
-                                <span class="cert-issuer">TryHackMe</span>
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-BAUH8J0NU4.pdf" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Advent of Cyber 2025</h4>
+                                        <span class="cert-issuer">TryHackMe</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 4 -->
                     <div class="cert-card-item thm-cert">
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-FXINOTLTVJ.pdf" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Pre Security</h4>
-                                <span class="cert-issuer">TryHackMe</span>
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-FXINOTLTVJ.pdf" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Pre Security</h4>
+                                        <span class="cert-issuer">TryHackMe</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 5 -->
                     <div class="cert-card-item opswat-cert">
-                        <a href="https://learn.opswatacademy.com/certificate/EWT1ZgyZVw" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card opswat-cert">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Email Security Associate</h4>
-                                <span class="cert-issuer">OPSWAT</span>
+                        <a href="https://learn.opswatacademy.com/certificate/EWT1ZgyZVw" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Email Security Associate</h4>
+                                        <span class="cert-issuer">OPSWAT</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 6 -->
                     <div class="cert-card-item opswat-cert">
-                        <a href="https://learn.opswatacademy.com/certificate/sGJhzR6qcA" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card opswat-cert">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">File Security Associate</h4>
-                                <span class="cert-issuer">OPSWAT</span>
+                        <a href="https://learn.opswatacademy.com/certificate/sGJhzR6qcA" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">File Security Associate</h4>
+                                        <span class="cert-issuer">OPSWAT</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 7 -->
                     <div class="cert-card-item opswat-cert">
-                        <a href="https://learn.opswatacademy.com/certificate/SEBWovItdA" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card opswat-cert">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Legacy Systems Security</h4>
-                                <span class="cert-issuer">OPSWAT</span>
+                        <a href="https://learn.opswatacademy.com/certificate/SEBWovItdA" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Legacy Systems Security</h4>
+                                        <span class="cert-issuer">OPSWAT</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 8 -->
                     <div class="cert-card-item opswat-cert">
-                        <a href="https://learn.opswatacademy.com/certificate/ev5COlsynA" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card opswat-cert">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Network Security</h4>
-                                <span class="cert-issuer">OPSWAT</span>
+                        <a href="https://learn.opswatacademy.com/certificate/ev5COlsynA" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Network Security</h4>
+                                        <span class="cert-issuer">OPSWAT</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 9 -->
                     <div class="cert-card-item opswat-cert">
-                        <a href="https://learn.opswatacademy.com/certificate/1ZjFxlIxDw" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card opswat-cert">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Secure Storage</h4>
-                                <span class="cert-issuer">OPSWAT</span>
+                        <a href="https://learn.opswatacademy.com/certificate/1ZjFxlIxDw" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Secure Storage</h4>
+                                        <span class="cert-issuer">OPSWAT</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
 
                     <!-- Cert 10 -->
                     <div class="cert-card-item opswat-cert">
-                        <a href="https://learn.opswatacademy.com/certificate/m1p1XDy_UQ" target="_blank" rel="noopener noreferrer" class="cyber-card cert-card opswat-cert">
-                            <span class="card-corner-decor decor-tl"></span>
-                            <span class="card-corner-decor decor-tr"></span>
-                            <span class="card-corner-decor decor-bl"></span>
-                            <span class="card-corner-decor decor-br"></span>
-                            <div class="cert-icon-wrapper">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                            <div class="cert-info">
-                                <h4 class="cert-title">Web Traffic Protection</h4>
-                                <span class="cert-issuer">OPSWAT</span>
+                        <a href="https://learn.opswatacademy.com/certificate/m1p1XDy_UQ" target="_blank" rel="noopener noreferrer" class="cert-flip-outer">
+                            <div class="cert-flip-inner">
+                                <div class="cyber-card cert-card cert-face cert-face-front opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Web Traffic Protection</h4>
+                                        <span class="cert-issuer">OPSWAT</span>
+                                    </div>
+                                </div>
+                                <div class="cyber-card cert-card cert-face cert-face-back opswat-cert">
+                                    <span class="card-corner-decor decor-tl"></span>
+                                    <span class="card-corner-decor decor-tr"></span>
+                                    <span class="card-corner-decor decor-bl"></span>
+                                    <span class="card-corner-decor decor-br"></span>
+                                    <div class="cert-back-content">
+                                        <svg class="cert-back-check" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        <span class="cert-back-label">Credential Verified</span>
+                                        <span class="cert-back-cta">View Certificate &rarr;</span>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -977,6 +1148,7 @@
 
     <!-- Scripts link -->
     <script src="webgl-bg.js"></script>
+    <script src="hero-3d.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

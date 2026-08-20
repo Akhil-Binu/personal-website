@@ -114,12 +114,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // 5. 3D Holographic Card Tilt Effect & Mouse Glow Coordinate
     // ----------------------------------------------------------------------
-    const tiltCards = document.querySelectorAll('.cyber-card');
+    // Cert faces are excluded: they already have their own 3D flip transform
+    // (applied to their parent), and an inline transform here would override
+    // the static rotateY(180deg) that keeps the back face correctly oriented.
+    const tiltCards = document.querySelectorAll('.cyber-card:not(.cert-face)');
 
     tiltCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
-            
+
             // Get mouse position relative to card
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -138,10 +141,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const tiltY = -(x - centerX) / centerX * 8; // Max tilt angle Y axis (degrees)
 
             card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.015, 1.015, 1.015)`;
+
+            // Extra depth-parallax layering for large portfolio showcase cards:
+            // the image pops forward while the text drifts the opposite way.
+            if (card.classList.contains('project-showcase')) {
+                const media = card.querySelector('.project-media');
+                const details = card.querySelector('.project-details');
+                const px = (x - centerX) / centerX; // -1 to 1
+                const py = (y - centerY) / centerY;
+
+                if (media) {
+                    media.style.transform = `translate3d(${px * 10}px, ${py * 8}px, 40px) scale(1.02)`;
+                }
+                if (details) {
+                    details.style.transform = `translate3d(${-px * 6}px, ${-py * 4}px, 0px)`;
+                }
+            }
         });
 
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+
+            if (card.classList.contains('project-showcase')) {
+                const media = card.querySelector('.project-media');
+                const details = card.querySelector('.project-details');
+                if (media) media.style.transform = 'translate3d(0, 0, 0) scale(1)';
+                if (details) details.style.transform = 'translate3d(0, 0, 0)';
+            }
         });
     });
 
@@ -458,11 +484,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // If close to mouse, change styling and color
                 if (distance < 120) {
-                    ctx.fillStyle = '#00f2fe'; // Cyan color
+                    ctx.fillStyle = '#39ff14'; // Bright neon green
                     ctx.shadowBlur = 10;
-                    ctx.shadowColor = '#00f2fe';
+                    ctx.shadowColor = '#39ff14';
                 } else {
-                    ctx.fillStyle = '#0f6'; // Green color
+                    ctx.fillStyle = '#00b34d'; // Deep green
                     ctx.shadowBlur = 0;
                 }
 
