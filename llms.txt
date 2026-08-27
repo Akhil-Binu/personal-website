@@ -21,9 +21,9 @@ Akhil Binu is a security researcher and full-stack cybersecurity specialist with
 
 ## Projects
 
-- [Akhil WebGuard Suite](https://akhil-website-scanner.vercel.app/): Node.js and Google Gemini AI-powered vulnerability scanner with DAST exploitation, SAST code auditing, exploit PoC generation, and compliance reporting. Source: https://github.com/Akhil-Binu/Akhil-Website-Scanner
-- [Akhil Orbit Player](https://akhil-orbit-player.vercel.app/): Offline-first, private educational media player for local course folders, built with TypeScript. Source: https://github.com/Akhil-Binu/Akhil-Orbit-Player
-- [Akhil Fortress](https://akhil-password-strength-checker.vercel.app/): Password security analysis tool with real-time entropy scoring, a common-password dictionary check, and leetspeak normalization. Source: https://github.com/Akhil-Binu/Password-Strength-Checker
+- [Akhil WebGuard Suite](https://akhil-website-scanner.vercel.app/): Node.js and Google Gemini AI-powered vulnerability scanner with DAST exploitation, SAST code auditing, exploit PoC generation, and compliance reporting. Source: https://github.com/akhil-binu/Akhil-Website-Scanner
+- [Akhil Orbit Player](https://akhil-orbit-player.vercel.app/): Offline-first, private educational media player for local course folders, built with TypeScript. Source: https://github.com/akhil-binu/Akhil-Orbit-Player
+- [Akhil Fortress](https://akhil-password-strength-checker.vercel.app/): Password security analysis tool with real-time entropy scoring, a common-password dictionary check, and leetspeak normalization. Source: https://github.com/akhil-binu/Password-Strength-Checker
 
 ## Writing
 
@@ -32,6 +32,6 @@ Akhil Binu is a security researcher and full-stack cybersecurity specialist with
 ## Contact
 
 - Email: akhilbinuwakeup@gmail.com
-- LinkedIn: https://linkedin.com/in/akhilbinu
-- GitHub: https://github.com/Akhil-Binu
+- LinkedIn: https://www.linkedin.com/in/akhilbinu/
+- GitHub: https://github.com/akhil-binu
 - Homepage: https://www.akhilbinu.in/
