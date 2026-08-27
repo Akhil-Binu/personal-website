@@ -505,7 +505,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        let matrixInterval = setInterval(drawMatrix, 33);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let matrixInterval = prefersReducedMotion ? null : setInterval(drawMatrix, 33);
+
+        // Pause the rain loop while the tab is hidden, and skip it entirely
+        // for users who've asked their OS for reduced motion.
+        document.addEventListener('visibilitychange', () => {
+            if (prefersReducedMotion) return;
+            if (document.hidden) {
+                clearInterval(matrixInterval);
+                matrixInterval = null;
+            } else if (!matrixInterval) {
+                matrixInterval = setInterval(drawMatrix, 33);
+            }
+        });
 
         // Handle Resize
         window.addEventListener('resize', () => {
@@ -580,15 +593,18 @@ document.addEventListener('DOMContentLoaded', () => {
         function triggerNextAttack() {
             if (window.isLiveThreatFeedActive && threatFeedData.length > 0) {
                 const threat = threatFeedData[threatFeedIndex];
-                
+                // The SANS backscatter API reports aggregate stats keyed by
+                // "sourceport" (no per-record IP address is provided).
+                const port = threat.sourceport;
+
                 // Map port to specific Kaspersky threat category
-                const threatClass = getKasperskyThreatClass(threat.port);
-                
+                const threatClass = getKasperskyThreatClass(port);
+
                 // Trigger 3D globe animation
                 if (typeof window.triggerThreatMapAttack === 'function') {
-                    window.triggerThreatMapAttack(threat.ip, threat.port, threatClass);
+                    window.triggerThreatMapAttack(threat.ip, port, threatClass);
                 }
-                
+
                 threatFeedIndex = (threatFeedIndex + 1) % threatFeedData.length;
             }
         }
@@ -596,8 +612,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize Live Feed
         fetchLiveThreats();
         
-        // Trigger live attacks every 110ms (approx. 9 attacks per second, matching 180 attacks/20s)
-        setInterval(triggerNextAttack, 110);
+        // Trigger live attacks every 110ms (approx. 9 attacks per second, matching 180 attacks/20s).
+        // Skipped while the tab is hidden since nothing is watching the globe/HUD then.
+        setInterval(() => {
+            if (document.hidden) return;
+            triggerNextAttack();
+        }, 110);
         
         // Refresh API feed every 5 minutes
         setInterval(fetchLiveThreats, 300000);

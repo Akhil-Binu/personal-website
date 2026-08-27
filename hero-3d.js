@@ -9,6 +9,7 @@
     const canvas = document.getElementById('hero-3d-canvas');
     if (!canvas || typeof THREE === 'undefined') return;
     if (window.innerWidth < 768) return; // Skip on mobile for performance
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // Purely decorative, skip entirely
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -23,14 +24,14 @@
     // Outer wireframe icosahedron shell (neon green)
     const shellGeo = new THREE.IcosahedronGeometry(2.6, 1);
     const shellEdges = new THREE.EdgesGeometry(shellGeo);
-    const shellMat = new THREE.LineBasicMaterial({ color: 0xff2438, transparent: true, opacity: 0.55 });
+    const shellMat = new THREE.LineBasicMaterial({ color: 0x39ff14, transparent: true, opacity: 0.55 });
     const shell = new THREE.LineSegments(shellEdges, shellMat);
     group.add(shell);
 
     // Inner core wireframe (deep green)
     const coreGeo = new THREE.IcosahedronGeometry(1.5, 0);
     const coreEdges = new THREE.EdgesGeometry(coreGeo);
-    const coreMat = new THREE.LineBasicMaterial({ color: 0xffb000, transparent: true, opacity: 0.45 });
+    const coreMat = new THREE.LineBasicMaterial({ color: 0x00b34d, transparent: true, opacity: 0.45 });
     const core = new THREE.LineSegments(coreEdges, coreMat);
     group.add(core);
 
@@ -46,7 +47,7 @@
         positions[i * 3 + 2] = Math.sin(angle) * r;
     }
     particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particleMat = new THREE.PointsMaterial({ color: 0xff2438, size: 0.07, transparent: true, opacity: 0.85 });
+    const particleMat = new THREE.PointsMaterial({ color: 0x39ff14, size: 0.07, transparent: true, opacity: 0.85 });
     const particles = new THREE.Points(particleGeo, particleMat);
     group.add(particles);
 
@@ -74,6 +75,7 @@
 
     function animate() {
         requestAnimationFrame(animate);
+        if (document.hidden) return; // Skip work while the tab is backgrounded
         const t = clock.getElapsedTime();
 
         shell.rotation.y = t * 0.22;

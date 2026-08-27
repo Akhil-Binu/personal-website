@@ -12,6 +12,7 @@
 
     // Performance parameters based on device
     const isMobile = window.innerWidth < 768;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const globeRadius = 37;
     const particleCount = isMobile ? 150 : 500;
     const maxActiveAttacks = isMobile ? 10 : 35;
@@ -287,9 +288,16 @@
         // Map threat class key
         const threat = kasperskyThreats[threatClass] || kasperskyThreats.ODS;
 
-        // Project source location using IP first octet
-        const firstOctet = parseInt(ip.split('.')[0]) || 0;
-        const srcIdx = Math.floor((firstOctet / 256) * pointsData.length) % pointsData.length;
+        // Project source location using the IP's first octet when a real IP is
+        // available; the SANS backscatter feed only reports aggregate port
+        // stats (no per-record IP), so fall back to a random source point.
+        let srcIdx;
+        if (typeof ip === 'string' && ip.includes('.')) {
+            const firstOctet = parseInt(ip.split('.')[0]) || 0;
+            srcIdx = Math.floor((firstOctet / 256) * pointsData.length) % pointsData.length;
+        } else {
+            srcIdx = Math.floor(Math.random() * pointsData.length);
+        }
         const src = pointsData[srcIdx];
 
         // Target: Focus on Akhil's India base coordinate
@@ -309,9 +317,11 @@
 
         createAttackObject(src, tgt, threat, port, ip, true);
 
-        // Dispatch SANS feed updates
+        // Dispatch SANS feed updates. Show the real IP when we have one;
+        // otherwise fall back to the source point's country, same as the
+        // simulated attack path.
         const payload = {
-            source: ip,
+            source: (typeof ip === 'string' && ip.includes('.')) ? ip : getCountryName(src.lon),
             target: "Akhil's Firewall (IN)",
             type: threat.name,
             port: port,
@@ -397,16 +407,18 @@
     let targetCameraRotY = 0;
     let targetCameraRotX = 0;
 
-    window.addEventListener('scroll', () => {
-        scrollY = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollFraction = maxScroll > 0 ? scrollY / maxScroll : 0;
+    if (!prefersReducedMotion) {
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollFraction = maxScroll > 0 ? scrollY / maxScroll : 0;
 
-        targetCameraZ = 82 - scrollFraction * 40; 
-        targetCameraY = 8 - scrollFraction * 36;
-        targetCameraRotY = -scrollFraction * 0.55;
-        targetCameraRotX = -scrollFraction * 0.20;
-    });
+            targetCameraZ = 82 - scrollFraction * 40;
+            targetCameraY = 8 - scrollFraction * 36;
+            targetCameraRotY = -scrollFraction * 0.55;
+            targetCameraRotX = -scrollFraction * 0.20;
+        });
+    }
 
     // ----------------------------------------------------------------------
     // 7. Animation Loop (Comet Line Updates)
@@ -415,6 +427,10 @@
 
     function animate() {
         requestAnimationFrame(animate);
+
+        // Skip all scene updates while the tab is hidden — nobody's watching,
+        // so there's no reason to keep animating comets/particles/camera.
+        if (document.hidden) return;
 
         const delta = clock.getDelta();
         const time = clock.getElapsedTime();
@@ -529,5 +545,11 @@
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
-    animate();
+    // Users who've asked their OS for reduced motion get one static render
+    // instead of the continuous rotation/comet/camera animation loop.
+    if (prefersReducedMotion) {
+        renderer.render(scene, camera);
+    } else {
+        animate();
+    }
 })();
