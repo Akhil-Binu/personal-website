@@ -3,33 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com https://isc.sans.edu;">
-    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://miro.medium.com; connect-src 'self' https://api.emailjs.com https://isc.sans.edu;">
+
     <!-- Search Engine Optimization (SEO) -->
     <title>Akhil Binu - Cybersecurity Specialist & Threat Researcher</title>
     <meta name="description" content="Professional portfolio of Akhil Binu, a Cybersecurity Specialist specializing in penetration testing, vulnerability assessment, 24/7 security monitoring, and expert tutoring.">
     <meta name="keywords" content="Akhil Binu, Cybersecurity, Penetration Testing, VAPT, Security Researcher, Digital Forensics, Nmap, Burp Suite">
     <meta name="author" content="Akhil Binu">
-    
+
     <!-- Open Graph (Facebook / LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Akhil Binu - Cybersecurity Specialist">
     <meta property="og:description" content="Fortifying digital ecosystems with proactive threat detection, advanced penetration testing, and robust risk remediation.">
-    <meta property="og:image" content="images/Akhil_ai_formal.png">
-    
+    <meta property="og:image" content="images/Akhil_ai_formal.webp">
+
+    <!-- Early connections to third-party origins used later on the page -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Google Fonts (linked directly so the browser discovers it immediately,
+         instead of via a CSS @import that would only be found after style.css loads) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+
     <!-- Link to custom stylesheets -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Three.js WebGL Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <!-- EmailJS Integration -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("yvpBBeVvA7lUbdSch"); // EmailJS Public Key
-        })();
-    </script>
 </head>
 <body>
     <!-- Matrix Particle Canvas -->
@@ -138,7 +137,7 @@
                         <div class="holo-ring"></div>
                         <div class="holo-ring-inner"></div>
                         <div class="profile-hex-container">
-                            <img src="images/Akhil_ai_formal.png" alt="Akhil Binu Profile Picture" width="300" height="300">
+                            <img src="images/Akhil_ai_formal.webp" alt="Akhil Binu Profile Picture" width="300" height="300" fetchpriority="high" decoding="async">
                         </div>
                         <div class="holo-glow"></div>
                         <div class="holo-scanline"></div>
@@ -763,7 +762,7 @@
 
                         <div class="card-content-3d">
                             <div class="project-media">
-                                <img src="images/website-scanner.png" alt="Akhil WebGuard Interface Mockup" class="project-img" width="450" height="330">
+                                <img src="images/website-scanner.webp" alt="Akhil WebGuard Interface Mockup" class="project-img" width="450" height="330" loading="lazy" decoding="async">
                                 <div class="project-meta">
                                     <div class="project-tags">
                                         <span class="project-tag tag-cyan">NODE.JS</span>
@@ -809,7 +808,7 @@
 
                         <div class="card-content-3d">
                             <div class="project-media">
-                                <img src="images/akhil_orbit_player.png" alt="Akhil Orbit Player Interface Mockup" class="project-img" width="450" height="330">
+                                <img src="images/akhil_orbit_player.webp" alt="Akhil Orbit Player Interface Mockup" class="project-img" width="450" height="330" loading="lazy" decoding="async">
                                 <div class="project-meta">
                                     <div class="project-tags">
                                         <span class="project-tag tag-cyan">TYPESCRIPT</span>
@@ -854,7 +853,7 @@
 
                         <div class="card-content-3d">
                             <div class="project-media">
-                                <img src="images/akhil_fortress.png" alt="Akhil Fortress Interface Mockup" class="project-img" width="450" height="330">
+                                <img src="images/akhil_fortress.webp" alt="Akhil Fortress Interface Mockup" class="project-img" width="450" height="330" loading="lazy" decoding="async">
                                 <div class="project-meta">
                                     <div class="project-tags">
                                         <span class="project-tag tag-cyan">REACT</span>
@@ -1145,6 +1144,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Third-party libraries: loaded at the end of body so the page's own
+         HTML/CSS can parse and paint first instead of being blocked in <head> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("yvpBBeVvA7lUbdSch"); // EmailJS Public Key
+        })();
+    </script>
 
     <!-- Scripts link -->
     <script src="webgl-bg.js"></script>

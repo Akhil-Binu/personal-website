@@ -4,7 +4,8 @@
    ==========================================================================
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Google Fonts are linked directly in index.html <head> (not @import'd here)
+   so the browser can start fetching them in parallel with this stylesheet. */
 
 /* CSS Variables & Design System Tokens */
 :root {
