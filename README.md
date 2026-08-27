@@ -60,6 +60,20 @@ A high-fidelity, interactive, and beautifully animated single-page portfolio web
   * `website-scanner.webp` — Akhil WebGuard dashboard mockup.
   * `akhil_orbit_player.webp` — Akhil Orbit Player interface mockup.
   * `akhil_fortress.webp` — Akhil Fortress password checker UI mockup.
+* **[robots.txt](robots.txt)** — crawler directives for search engines and AI assistants (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, etc.), plus a sitemap reference.
+* **[sitemap.xml](sitemap.xml)** — XML sitemap for search engine discovery.
+* **[llms.txt](llms.txt)** — a plain-language summary of the site (background, services, projects, contact) formatted per the [llms.txt convention](https://llmstxt.org/) for AI assistants and answer engines.
+
+---
+
+## 🔍 SEO & AI Discoverability
+
+- **Structured data**: JSON-LD (`Person`, `WebSite`, `ProfilePage`) embedded in `index.html` so search engines and AI assistants can resolve who the site is about, not just what it says.
+- **Canonical & social tags**: canonical URL, absolute Open Graph tags, and a Twitter/X card, all pointing at `https://www.akhilbinu.in/`.
+- **Crawler access**: `robots.txt` explicitly allows traditional search bots (Googlebot, Bingbot, DuckDuckBot) alongside the crawlers AI assistants use to ground answers (GPTBot, ChatGPT-User, ClaudeBot, Google-Extended, PerplexityBot, and others).
+- **`llms.txt`**: a concise, structured summary of who Akhil is, his services, and his projects — written for AI systems that read this file directly instead of parsing the full page.
+
+> Adding these files makes the site crawlable and easy to parse — it doesn't guarantee indexing. Getting listed still requires manually verifying the domain in [Google Search Console](https://search.google.com/search-console) and [Bing Webmaster Tools](https://www.bing.com/webmasters) and submitting `sitemap.xml` there (Bing's index also powers DuckDuckGo and Copilot).
 
 ---
 

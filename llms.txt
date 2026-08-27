@@ -1,0 +1,36 @@
+# Akhil Binu
+
+> Cybersecurity Specialist & Threat Researcher specializing in penetration testing, vulnerability assessment (VAPT), digital forensics, 24/7 security monitoring, and 1:1/group security tutoring.
+
+Akhil Binu is a security researcher and full-stack cybersecurity specialist with 2+ years of experience safeguarding web applications, networks, and digital assets. This file summarizes his professional portfolio at https://www.akhilbinu.in/ for AI assistants and answer engines.
+
+## Background
+
+- B.Tech in Computer Science, College of Engineering Kallooppara (2019-2023)
+- Security Researcher & Tutor, Upwork / Freelance (Jan 2025 - Present)
+- Digital Forensics Intern, Cyber Secured India (Apr 2025 - Jun 2025)
+- Founder & CTO, Brotechy (Jan 2022 - Feb 2025)
+- Certifications: TryHackMe (Security Engineer, SOC Level 1, Pre Security, Advent of Cyber 2025), OPSWAT Academy (Email Security Associate, File Security Associate, Legacy Systems Security, Network Security, Secure Storage, Web Traffic Protection)
+
+## Services
+
+- Penetration Testing — web, network, and mobile applications
+- 24/7 Security Monitoring — continuous surveillance and rapid threat mitigation
+- Vulnerability Assessment (VAPT) — identification, classification, and remediation roadmaps
+- Tutoring — 1:1 and group cybersecurity training for aspiring professionals
+
+## Projects
+
+- [Akhil WebGuard Suite](https://akhil-website-scanner.vercel.app/): Node.js and Google Gemini AI-powered vulnerability scanner with DAST exploitation, SAST code auditing, exploit PoC generation, and compliance reporting. Source: https://github.com/Akhil-Binu/Akhil-Website-Scanner
+- [Akhil Orbit Player](https://akhil-orbit-player.vercel.app/): Offline-first, private educational media player for local course folders, built with TypeScript. Source: https://github.com/Akhil-Binu/Akhil-Orbit-Player
+- [Akhil Fortress](https://akhil-password-strength-checker.vercel.app/): Password security analysis tool with real-time entropy scoring, a common-password dictionary check, and leetspeak normalization. Source: https://github.com/Akhil-Binu/Password-Strength-Checker
+
+## Writing
+
+- Medium (security research and threat briefs): https://medium.com/@akhilbinu
+
+## Contact
+
+- Email: akhilbinuwakeup@gmail.com
+- LinkedIn: https://linkedin.com/in/akhilbinu
+- Homepage: https://www.akhilbinu.in/
