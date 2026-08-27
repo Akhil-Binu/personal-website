@@ -55,11 +55,11 @@ A high-fidelity, interactive, and beautifully animated single-page portfolio web
 * **[script.js](script.js)** — mobile toggles, viewport scroll-reveals, skill fill animations, interactive matrix canvas loop, card 3D tilt/parallax coordinates, terminal logic, live threat feed HUD, and EmailJS connection log routines.
 * **[webgl-bg.js](webgl-bg.js)** — Three.js 3D cyber threat map globe: dot-matrix globe generation, live attack comet trails, impact ripples, and scroll-driven camera movement.
 * **[hero-3d.js](hero-3d.js)** — Three.js hero section data-crystal: wireframe icosahedron shell/core, orbiting particles, and mouse-parallax rotation.
-* **images/** — Local visual assets directory:
-  * `Akhil_ai_formal.png` — Hero section profile avatar.
-  * `website-scanner.png` — Akhil WebGuard dashboard mockup.
-  * `akhil_orbit_player.png` — Akhil Orbit Player interface mockup.
-  * `akhil_fortress.png` — Akhil Fortress password checker UI mockup.
+* **images/** — Local visual assets directory (WebP, optimized for fast loading):
+  * `Akhil_ai_formal.webp` — Hero section profile avatar.
+  * `website-scanner.webp` — Akhil WebGuard dashboard mockup.
+  * `akhil_orbit_player.webp` — Akhil Orbit Player interface mockup.
+  * `akhil_fortress.webp` — Akhil Fortress password checker UI mockup.
 
 ---
 
