@@ -1875,8 +1875,9 @@ header.hud-nav.scrolled {
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding-top: 32px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 24px 40px;
 }
 
 .contact-channel-item {
