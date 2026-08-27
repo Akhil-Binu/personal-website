@@ -63,6 +63,15 @@ A high-fidelity, interactive, and beautifully animated single-page portfolio web
 
 ---
 
+## ⚡ Performance
+
+- **Images** are served as compressed WebP, resized to their actual on-page display resolution (2x for retina) — cutting the four portfolio/hero images from ~1.78MB down to ~105KB combined (a ~94% reduction).
+- **Below-the-fold images** (portfolio and blog thumbnails) use `loading="lazy"` and `decoding="async"`; the hero profile photo uses `fetchpriority="high"` since it's the page's LCP candidate.
+- **Third-party scripts** (Three.js, EmailJS) are loaded at the end of `<body>` instead of `<head>`, so the page's own HTML/CSS can parse and paint before ~600KB of external library code is fetched and executed.
+- **Google Fonts** are linked directly from `<head>` (with `rel="preconnect"` hints) rather than via a CSS `@import`, so the font stylesheet is discovered and fetched in parallel with `style.css` instead of after it.
+
+---
+
 ## 🛠️ Technology Stack & Integrations
 
 1. **Frontend Core**: Semantic HTML5 & Modern Vanilla CSS (Flexbox & Grid, 3D transforms).
